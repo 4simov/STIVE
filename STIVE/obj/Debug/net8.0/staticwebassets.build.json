@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "x0gxBL5ab4I/KU7lvfnFdu0Hs0a1+932IxgJD2TNXFI=",
+  "Hash": "HPcbrwsa3e+uhQeNLbCAEbJTkC9S9Hmo/puEZeEYqa8=",
   "Source": "STIVE",
   "BasePath": "_content/STIVE",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
