@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimized Design</title>
+    <title>NégoSud</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -13,23 +13,22 @@
 </head>
 
 <body>
+    <!-- Pop Up confirmation Age -->
+    <div id="age-popup" class="popup">
+        <div class="popup-content">
+            <h2>Confirmez votre âge</h2>
+            <p>Vous devez avoir 18 ans ou plus pour accéder à ce site.</p>
+            <button id="confirm-age">J'ai 18 ans ou plus</button>
+            <button id="deny-age">Je n'ai pas 18 ans</button>
+        </div>
+    </div>
+
     <div class="background">
-        <header class="header">
-            <div class="logo">
-                <img src="images/Vector.svg" alt="Logo">
-            </div>
-            <nav class="navigation">
-                <a href="#" class="nav-item">Accueil</a>
-                <a href="#" class="nav-item">Nos vins</a>
-                <a href="#" class="nav-item">Dégustation</a>
-                <a href="#" class="nav-item">Contact</a>
-            </nav>
-            <div class="actions">
-                <div class="action-button">🛒</div>
-                <div class="action-button">Connexion </div>
-            </div>
-        </header>
+        <!-- header -->
+        <div id="header-container"></div>
         <main class="main">
+
+            <!-- Partie Famille de vin  -->
             <section class="hero">
                 <img src="images/Frame 8.svg" alt="Hero Image">
             </section>
@@ -51,28 +50,66 @@
                 </div>
                 <a href="#" class="see-more">Voir plus</a>
             </section>
+            <!-- Partie Suggestion -->
+            <section class="suggestion-products">
+                <h2>Nos suggestions du mois </h2>
+                <div class="suggestions">
+                    <div class="suggestion">
+                        <img src="images/une_bouteille_de_vin_blanc_sur_un_fond_neutre-removebg-preview 2 (1).png"
+                             alt="Suggestion 1">
+                        <p class="suggestion-type">Le Bal des Papillons 2023 - Horgelus</p>
+                        <p class="suggestion-type-prix">Prix : 20€ </p>
+                        <a href="#" class="see-more">Ajouter</a>
+
+                    </div>
+                    <div class="suggestion">
+                        <img src="images/Rose.png" alt="Suggestion 2">
+                        <p class="suggestion-type">Terre de Feu 2023 - Villa Dria</p>
+                        <p class="suggestion-type-prix">Prix : 35€ </p>
+                        <a href="#" class="see-more">Ajouter</a>
+                    </div>
+                    <div class="suggestion">
+                        <img src="images/Rouge.png" alt="Suggestion 3">
+                        <p class="suggestion-type">Ronde des Fruits 2023 - Villa Dria</p>
+                        <p class="suggestion-type-prix">Prix : 15€99</p>
+                        <a href="#" class="see-more">Ajouter</a>
+                    </div>
+                </div>
+            </section>
+
         </main>
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/Vector.svg" alt="Footer Logo">
-                </div>
-
-                <div class="contact-info">
-                    <h3>Contactez nous</h3>
-                    <p> 22 B Rue du Cap Vert, 21800 Quetigny</p>
-                    <p>aperitif@qodeinteractive.com</p>
-                    <p>+(000) 000-0000</p>
-                </div>
-
-            </div>
-            <div class="footer-reglementation">
-                <p>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
-                <img src="images/reglementation-vente-mineur.jpeg" alt="Footer Logo">
-            </div>
-            <p class="footer-copy">© 2024 Tout droits reservés</p>
-        </footer>
-    </div>
+        <!-- Footer -->
+        <div id="footer-container">
+        </div>
 </body>
 
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.getElementById("age-popup");
+    const confirmBtn = document.getElementById("confirm-age");
+    const denyBtn = document.getElementById("deny-age");
+
+    // Affiche la pop-up au chargement
+    popup.classList.add("show");
+    confirmBtn.addEventListener("click", function () {
+      popup.classList.remove("show");
+    });
+    denyBtn.addEventListener("click", function () {
+      alert("Vous devez avoir 18 ans pour accéder au site.");
+
+    });
+  });
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+    });
+</script>

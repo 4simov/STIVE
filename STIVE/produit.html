@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NégoSud</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_fiche_produit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+    <div class="background">
+        <!-- header -->
+        <div id="header-container"></div>
+        <main class="main">
+            <div class="FicheProduit">
+                <div class="groupe-photo">
+                    <img class="photoMain" src="images/vin_blanc_fiche_produit.png" />
+                    <img class="photoPetite" src="images/vin_blanc_fiche_produit.png" />
+                    <img class="photoPetite" src="images/vin_blanc_fiche_produit.png" />
+                    <img class="photoPetite" src="images/vin_blanc_fiche_produit.png" />
+
+                </div>
+                <div class="description">
+                    <h2 class="TitreProduit">Lorem ipsum dolor sit amet</h2>
+
+                    <p class="DescriptionProduit">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu malesuada ante, eu maximus erat. Integer eleifend elementum massa, nec cursus lorem consequat in. Curabitur quis arcu magna.
+                        Mauris efficitur dui ante, id tempus lacus fringilla quis.
+                        Pellente sque posuere sollicitudin tempor. Cras blandit accumsan luctus. Cras dignissim tincidunt ligula venenatis commodo. In eleifend lacus erat, eget mollis mauris ultricies eget.
+                    </p>
+                    <p class="Prix">25 €</p>
+                    <div class="PriceAndActions">
+                        <p class="Quantite">Quantité: <span>1</span></p>
+                        <a class="AddToCart" href="#">Ajouter au panier</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <!-- Footer -->
+        <div id="footer-container">
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+    });
+</script>

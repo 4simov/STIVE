@@ -1,0 +1,71 @@
+﻿.FicheProduit {
+    position: relative;
+    background: #FAF1E2;
+    display: flex;
+    padding-top: 80px;
+    gap: 38px;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.groupe-photo {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    width: fit-content;
+    column-gap: 28px;
+    row-gap: 22px;
+}
+
+.photoMain {
+    width: 483px;
+    height: 483px;
+    grid-row: 1 / 4;
+    grid-column: 2/3;
+}
+
+.photoPetite {
+    width: 145px;
+    height: 145px;
+}
+
+.description {
+    max-width: 600px;
+}
+
+.TitreProduit {
+    color: #4F1823;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+.FixedTop {
+    width: 1440px;
+    height: 138px;
+}
+
+.DescriptionProduit {
+    color: #4F1823;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.PriceAndActions {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.Prix {
+    font-size: 25px;
+    color: black;
+}
+
+.Quantite,
+.AddToCart {
+    font-size: 17px;
+    color: black;
+    background-color: #E9DBC4;
+    padding: 14px 22px;
+}

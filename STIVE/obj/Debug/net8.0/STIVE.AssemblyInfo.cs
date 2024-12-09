@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("STIVE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a8885f2c93ea31d69b52b8180be1c7f05401fec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3641ed81868336a0520f8896c3224976e7fbdffb")]
 [assembly: System.Reflection.AssemblyProductAttribute("STIVE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("STIVE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
