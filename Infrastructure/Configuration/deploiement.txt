@@ -1,0 +1,82 @@
+﻿
+CREATE TABLE adresse (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pays VARCHAR(100) NOT NULL,
+    rue VARCHAR(255) NOT NULL,
+    code_postal VARCHAR(10) NOT NULL,
+    ville VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE carte_bancaire (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    numeros VARCHAR(20) NOT NULL,
+    code VARCHAR(10) NOT NULL,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE utilisateur (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    mdp VARCHAR(300) NOT NULL,
+    adresse_fk INT NOT NULL,
+    carte_bancaire_fk INT,
+    FOREIGN KEY (adresse_fk) REFERENCES adresse(id),
+    FOREIGN KEY (carte_bancaire_fk) REFERENCES carte_bancaire(id)
+);
+
+CREATE TABLE fournisseur (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(100) NOT NULL,
+    adresse_fk INT NOT NULL,
+    FOREIGN KEY (adresse_fk) REFERENCES adresse(id)
+);
+
+CREATE TABLE famille (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(100) NOT NULL,
+    type_vin int NOT NULL
+);
+
+CREATE TABLE article (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    reference VARCHAR(100) NOT NULL UNIQUE,
+    nom VARCHAR(100) NOT NULL,
+    prix_carton FLOAT NOT NULL,
+    prix_unitaire FLOAT NOT NULL,
+    quantite INT NOT NULL,
+    famille_fk INT NOT NULL,
+    fournisseur_fk INT NOT NULL,
+    seuil_minimum INT NOT NULL,
+    reapvisionnement_auto BOOLEAN NOT NULL,
+    quantite_auto INT NOT NULL,
+    FOREIGN KEY (famille_fk) REFERENCES famille(id),
+    FOREIGN KEY (fournisseur_fk) REFERENCES fournisseur(id)
+);
+
+CREATE TABLE stock (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    article_fk INT NOT NULL,
+    quantite_max INT NOT NULL,
+    quantite_restante INT NOT NULL,
+    date_reception DATETIME NOT NULL,
+    FOREIGN KEY (article_fk) REFERENCES article(id)
+);
+
+CREATE TABLE commande (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    client_fk INT NOT NULL,
+    date DATETIME NOT NULL,
+    FOREIGN KEY (client_fk) REFERENCES utilisateur(id)
+);
+
+CREATE TABLE item_commande (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    commande_fk INT NOT NULL,
+    article_fk INT NOT NULL,
+    quantite INT NOT NULL,
+    is_carton BOOLEAN NOT NULL,
+    FOREIGN KEY (commande_fk) REFERENCES commande(id),
+    FOREIGN KEY (article_fk) REFERENCES article(id)
+);
