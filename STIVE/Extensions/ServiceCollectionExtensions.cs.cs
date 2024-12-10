@@ -3,6 +3,8 @@ using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Core.UseCase.Famille;
 using STIVE.Core.UseCase;
 using STIVE.Infrastructure;
+using Core.UseCase.Famille.Abstraction;
+using STIVE.Infrastructure.Repositories;
 
 namespace STIVE.Extensions
 {
@@ -12,6 +14,7 @@ namespace STIVE.Extensions
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
             services.AddScoped<IGetFamille, GetFamille>();
+            services.AddScoped<IAddFamille, AddFamille>();
             return services;
         }
 

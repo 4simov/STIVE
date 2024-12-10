@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.DTO.Famille;
+using Core.UseCase.Famille.Abstraction;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -95,12 +96,13 @@ namespace STIVE.WebAPI.Controllers
         // POST: api/Famille
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Famille>> PostFamille(FamilleAddRequest famille)
+        public async Task<ActionResult<Famille>> PostFamille( [FromServices] IAddFamille _addFamille, FamilleAddRequest famille)
         {
-            _context.Famille.Add(new Famille { Nom = famille.Nom, TypeVin = famille.TypeVin });
-            await _context.SaveChangesAsync();
+            //_context.Famille.Add(new Famille { Nom = famille.Nom, TypeVin = famille.TypeVin });
+            //await _context.SaveChangesAsync();
+            var r = await _addFamille.ExecuteAsync(famille);
 
-            return CreatedAtAction("GetFamille", famille);
+            return CreatedAtAction("GetFamille", r);
         }
 
         // DELETE: api/Famille/5
