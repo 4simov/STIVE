@@ -1,4 +1,4 @@
-﻿using STIVE.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Core.UseCase
     /// </summary>
     public class BaseUseCase
     {
-        private readonly NegosudContext _context;
+        private readonly DbContext _context;
 
         /// <summary>
         /// On pratique ici ce que l'on appel une injection de dépendance, en gros le "context"
@@ -21,7 +21,7 @@ namespace Core.UseCase
         /// "private readonly NegosudContext _context;"
         /// </summary>
         /// <param name="context"></param>
-        public BaseUseCase(NegosudContext context) 
+        public BaseUseCase(DbContext context) 
         {
             _context = context;
         }
