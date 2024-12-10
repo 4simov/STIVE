@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Infrastructure;
 
-namespace STIVE.Core.UseCase.Famille
+namespace STIVE.Infrastructure.Repositories.Famille
 {
     public class GetFamille : BaseUseCase, IGetFamille
     {
@@ -25,7 +25,20 @@ namespace STIVE.Core.UseCase.Famille
 
         public Task<List<FamilleResponse>> ExecuteAsync()
         {
-            throw new NotImplementedException();
+            var familles = _context.Famille.ToList();
+
+            List<FamilleResponse> familleResponse = new List<FamilleResponse>();
+            foreach (var famille in familles)
+            {
+                familleResponse.Add(new FamilleResponse
+                {
+                    Id = famille.Id,
+                    Nom = famille.Nom,
+                    TypeVin = famille.TypeVin,
+                });
+            }
+
+            return Task.FromResult(familleResponse);
         }
     }
 }
