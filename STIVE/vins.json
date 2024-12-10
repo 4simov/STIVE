@@ -1,0 +1,82 @@
+[
+  {
+    "nom": "Château Margaux",
+    "type": "Rouge",
+    "quantité": 12,
+    "prix": 250,
+    "description": "Un vin rouge prestigieux avec des arômes complexes de fruits rouges et de chêne.",
+    "image": "images/chateau_margaux.jpg"
+  },
+  {
+    "nom": "Domaine de Chevalier",
+    "type": "Blanc",
+    "quantité": 8,
+    "prix": 90,
+    "description": "Un vin blanc élégant avec des notes de citron, de pêche et une belle minéralité.",
+    "image": "images/domaine_chevalier.jpg"
+  },
+  {
+    "nom": "Rosé de Provence",
+    "type": "Rosé",
+    "quantité": 20,
+    "prix": 15,
+    "description": "Un rosé léger et rafraîchissant avec des arômes de fraise et de melon.",
+    "image": "images/rose_provence.jpg"
+  },
+  {
+    "nom": "Clos de Vougeot",
+    "type": "Rouge",
+    "quantité": 5,
+    "prix": 300,
+    "description": "Un grand cru mythique de Bourgogne avec des saveurs intenses et complexes.",
+    "image": "images/clos_vougeot.jpg"
+  },
+  {
+    "nom": "Chablis Premier Cru",
+    "type": "Blanc",
+    "quantité": 10,
+    "prix": 50,
+    "description": "Un vin blanc sec avec une acidité vibrante et des notes de pomme verte et de citron.",
+    "image": "images/chablis.jpg"
+  },
+  {
+    "nom": "Côtes de Provence",
+    "type": "Rosé",
+    "quantité": 15,
+    "prix": 18,
+    "description": "Un vin rosé frais et fruité idéal pour les journées d'été.",
+    "image": "images/cotes_provence.jpg"
+  },
+  {
+    "nom": "Saint-Émilion Grand Cru",
+    "type": "Rouge",
+    "quantité": 7,
+    "prix": 120,
+    "description": "Un vin rouge rond et équilibré, avec des notes de fruits noirs et une touche d'épices.",
+    "image": "images/saint_emilion.jpg"
+  },
+  {
+    "nom": "Sancerre Blanc",
+    "type": "Blanc",
+    "quantité": 6,
+    "prix": 35,
+    "description": "Un vin blanc rafraîchissant avec des arômes de pamplemousse, de fleurs blanches et de minéraux.",
+    "image": "images/sancerre.jpg"
+  },
+  {
+    "nom": "Tavel",
+    "type": "Rosé",
+    "quantité": 25,
+    "prix": 22,
+    "description": "Un rosé structuré et puissant avec des arômes de fruits rouges mûrs.",
+    "image": "images/tavel.jpg"
+  },
+  {
+    "nom": "Châteauneuf-du-Pape",
+    "type": "Rouge",
+    "quantité": 4,
+    "prix": 75,
+    "description": "Un vin rouge riche et complexe avec des arômes de fruits noirs, de poivre et de garrigue.",
+    "image": "images/chateauneuf_du_pape.jpg"
+  }
+]

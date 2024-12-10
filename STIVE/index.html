@@ -28,7 +28,56 @@
         <div id="header-container"></div>
         <main class="main">
 
-            <!-- Partie Famille de vin  -->
+            <!-- Partie Famille de vin
+            <section class="hero">
+              <img src="images/Frame 8.svg" alt="Hero Image">
+            </section>
+            <section class="featured-products">
+              <h2>Nos différentes familles de vin</h2>
+              <div class="products">
+                <div class="product">
+                  <img src="images/une_bouteille_de_vin_blanc_sur_un_fond_neutre-removebg-preview 2 (1).png" alt="Product 1">
+                  <p class="product-type">Vin Blanc</p>
+                </div>
+                <div class="product">
+                  <img src="images/Rose.png" alt="Product 2">
+                  <p class="product-type">Vin Rose</p>
+                </div>
+                <div class="product">
+                  <img src="images/Rouge.png" alt="Product 3">
+                  <p class="product-type">Vin Rouge</p>
+                </div>
+              </div>
+              <a href="#" class="see-more">Voir plus</a>
+            </section> -->
+            <!-- Partie Suggestion -->
+            <!-- <section class="suggestion-products">
+              <h2>Nos suggestions du mois </h2>
+              <div class="suggestions">
+                <div class="suggestion">
+                  <img src="images/une_bouteille_de_vin_blanc_sur_un_fond_neutre-removebg-preview 2 (1).png"
+                    alt="Suggestion 1" >
+                  <p class="suggestion-type">Le Bal des Papillons 2023 - Horgelus</p>
+                  <p class="suggestion-type-prix">Prix : 20€ </p>
+                  <a href="#" class="see-more">Ajouter</a>
+
+                </div>
+                <div class="suggestion">
+                  <img src="images/Rose.png" alt="Suggestion 2">
+                  <p class="suggestion-type">Terre de Feu 2023 - Villa Dria</p>
+                  <p class="suggestion-type-prix">Prix : 35€ </p>
+                  <a href="#" class="see-more">Ajouter</a>
+                </div>
+                <div class="suggestion">
+                  <img src="images/Rouge.png" alt="Suggestion 3">
+                  <p class="suggestion-type">Ronde des Fruits 2023 - Villa Dria</p>
+                  <p class="suggestion-type-prix">Prix : 15€99</p>
+                  <a href="#" class="see-more">Ajouter</a>
+                </div>
+              </div>
+            </section> -->
+            <!-- TEST  -->
+            <!-- Partie Famille de vin -->
             <section class="hero">
                 <img src="images/Frame 8.svg" alt="Hero Image">
             </section>
@@ -50,30 +99,12 @@
                 </div>
                 <a href="#" class="see-more">Voir plus</a>
             </section>
+
             <!-- Partie Suggestion -->
             <section class="suggestion-products">
-                <h2>Nos suggestions du mois </h2>
-                <div class="suggestions">
-                    <div class="suggestion">
-                        <img src="images/une_bouteille_de_vin_blanc_sur_un_fond_neutre-removebg-preview 2 (1).png"
-                             alt="Suggestion 1">
-                        <p class="suggestion-type">Le Bal des Papillons 2023 - Horgelus</p>
-                        <p class="suggestion-type-prix">Prix : 20€ </p>
-                        <a href="#" class="see-more">Ajouter</a>
-
-                    </div>
-                    <div class="suggestion">
-                        <img src="images/Rose.png" alt="Suggestion 2">
-                        <p class="suggestion-type">Terre de Feu 2023 - Villa Dria</p>
-                        <p class="suggestion-type-prix">Prix : 35€ </p>
-                        <a href="#" class="see-more">Ajouter</a>
-                    </div>
-                    <div class="suggestion">
-                        <img src="images/Rouge.png" alt="Suggestion 3">
-                        <p class="suggestion-type">Ronde des Fruits 2023 - Villa Dria</p>
-                        <p class="suggestion-type-prix">Prix : 15€99</p>
-                        <a href="#" class="see-more">Ajouter</a>
-                    </div>
+                <h2>Nos suggestions du mois</h2>
+                <div id="suggestions-container" class="suggestions">
+                    <!-- Les suggestions dynamiques seront insérées ici -->
                 </div>
             </section>
 
@@ -86,30 +117,52 @@
 </html>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("age-popup");
-    const confirmBtn = document.getElementById("confirm-age");
-    const denyBtn = document.getElementById("deny-age");
+    document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("age-popup");
+        const confirmBtn = document.getElementById("confirm-age");
+        const denyBtn = document.getElementById("deny-age");
 
-    // Affiche la pop-up au chargement
-    popup.classList.add("show");
-    confirmBtn.addEventListener("click", function () {
-      popup.classList.remove("show");
-    });
-    denyBtn.addEventListener("click", function () {
-      alert("Vous devez avoir 18 ans pour accéder au site.");
+        // Affiche la pop-up au chargement
+        popup.classList.add("show");
+        confirmBtn.addEventListener("click", function () {
+            popup.classList.remove("show");
+        });
+        denyBtn.addEventListener("click", function () {
+            alert("Vous devez avoir 18 ans pour accéder au site.");
 
-    });
-  });
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
+        });
     });
 
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    });
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+
+    // Prends les données depuis le fichier JSON
+    fetch("vins.json")
+        .then((response) => response.json()) // Convertir la réponse en JSON
+        .then((vins) => {
+            const suggestionsContainer = document.getElementById("suggestions-container");
+
+            //Maximum 4 suggestions
+            vins.slice(0, 4).forEach((vin) => {
+                suggestionsContainer.innerHTML += `
+          <div class="suggestion">
+            <img src="${vin.image}" alt="${vin.nom}">
+            <p class="suggestion-type">${vin.nom}</p>
+            <p class="suggestion-type-prix">Prix : ${vin.prix}€</p>
+            <a href="#" class="see-more">Voir la fiche</a>
+          </div>
+        `;
+            });
+        })
+        .catch((error) => console.error("Erreur de chargement des données :", error));
 </script>
