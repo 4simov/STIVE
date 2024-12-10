@@ -1,14 +1,10 @@
 ﻿using Core.DTO.Famille;
+using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
-using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using STIVE.Domain.Entities;
 
-namespace Core.UseCase.Famille
+
+namespace STIVE.Infrastructure.Repositories
 {
     public class AddFamille : BaseUseCase, IAddFamille
     {
@@ -20,9 +16,15 @@ namespace Core.UseCase.Famille
             _context = context;
         }
 
-        public Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
+        public async Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
         {
-            throw new NotImplementedException();
+            var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin };
+            var add = _context.Famille.Add(familleToAdd);
+            await _context.SaveChangesAsync();
+
+            var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin};
+
+            return await Task.FromResult(resp);
         }
     }
 }
