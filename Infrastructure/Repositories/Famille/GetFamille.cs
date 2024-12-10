@@ -25,7 +25,20 @@ namespace STIVE.Core.UseCase.Famille
 
         public Task<List<FamilleResponse>> ExecuteAsync()
         {
-            throw new NotImplementedException();
+            var familles = _context.Famille.ToList();
+
+            List<FamilleResponse> familleResponse = new List<FamilleResponse>();
+            foreach (var famille in familles)
+            {
+                familleResponse.Add(new FamilleResponse
+                {
+                    Id = famille.Id,
+                    Nom = famille.Nom,
+                    TypeVin = famille.TypeVin,
+                });
+            }
+
+            return Task.FromResult(familleResponse);
         }
     }
 }
