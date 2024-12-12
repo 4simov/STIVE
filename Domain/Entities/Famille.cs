@@ -9,5 +9,7 @@ namespace STIVE.Domain.Entities
         public string Nom { get; set; }
         [Column("type_vin")]
         public int TypeVin { get; set; }
+        [Column("Photo")]
+        public byte[] Photo { get; set; }
     }
 }

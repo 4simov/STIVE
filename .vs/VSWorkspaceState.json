@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Core",
+    "\\Domain",
+    "\\Infrastructure",
+    "\\Infrastructure\\Configuration",
+    "\\STIVE"
   ],
   "SelectedNode": "\\STIVE.sln",
   "PreviewInSolutionExplorer": false

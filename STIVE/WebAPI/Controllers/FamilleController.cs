@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+using System.Text;
 using System.Threading.Tasks;
 using Core.DTO.Famille;
 using Core.UseCase.Famille.Abstraction;
@@ -10,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
+
+
 
 namespace STIVE.WebAPI.Controllers
 {
@@ -33,20 +37,30 @@ namespace STIVE.WebAPI.Controllers
             var resp = await _getFamille.ExecuteAsync();
             return Ok(resp);
             var familles = await _context.Famille.ToListAsync();
-            
+
             List<FamilleResponse> familleResponse = new List<FamilleResponse>();
             foreach (var famille in familles)
             {
-                familleResponse.Add(new FamilleResponse 
+                Console.WriteLine($"Type of Photo: {famille.Photo.GetType().FullName}");
+                Console.WriteLine($"Length of Photo: {famille.Photo.Length}");
+                familleResponse.Add(new FamilleResponse
                 {
+
                     Id = famille.Id,
                     Nom = famille.Nom,
                     TypeVin = famille.TypeVin,
+                    Photo = famille.Photo,
+                               
+
                 });
             }
-
             return Ok(familleResponse);
+            
         }
+
+
+
+
 
         // GET: api/Famille/5
         [HttpGet("{id}")]
@@ -54,12 +68,12 @@ namespace STIVE.WebAPI.Controllers
         {
             var famille = await _context.Famille.FindAsync(id);
 
-            if (famille == null)
+            if (famille == null || famille.Photo == null)
             {
                 return NotFound();
             }
-
-            return famille;
+            return File(famille.Photo, "image/jpeg");
+            //return famille;
         }
 
         // PUT: api/Famille/5
@@ -125,5 +139,8 @@ namespace STIVE.WebAPI.Controllers
         {
             return _context.Famille.Any(e => e.Id == id);
         }
+        
+
     }
+
 }
