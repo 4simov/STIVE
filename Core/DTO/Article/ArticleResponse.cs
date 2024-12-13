@@ -16,5 +16,9 @@ namespace Core.DTO.Article
         public float prix_unitaire { get; set; }
         public int quantite { get; set; }
         public string description { get; set; }
+        public byte[] image { get; set; }
+        //Clé étrangère 
+        public int familleFK { get; set; }
+        public int fournisseurFK { get; set; }
     }
 }

@@ -31,7 +31,11 @@ public class AddArticle : BaseUseCase, IAddArticle
             prix_carton = input.prix_carton,
             prix_unitaire = input.prix_unitaire,
             quantite = input.quantite,
-            description = input.description
+            description = input.description,
+            fournisseur_fk = input.fournisseurFK,
+            famille_fk = input.familleFK,
+            
+
         };
 
         // Ajout de l'article dans le contexte
@@ -46,7 +50,10 @@ public class AddArticle : BaseUseCase, IAddArticle
             prix_carton = add.Entity.prix_carton,
             prix_unitaire = add.Entity.prix_unitaire,
             quantite = add.Entity.quantite,
-            description = add.Entity.description
+            description = add.Entity.description,
+            fournisseurFK = input.fournisseurFK,
+            familleFK = input.familleFK,
+            image = input.image,
         };
 
         return await Task.FromResult(resp);

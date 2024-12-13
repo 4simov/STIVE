@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.DTO.Article;
 using Core.DTO.Famille;
 using Core.UseCase.Article.Abstraction;
+using Core.UseCase.Famille.Abstraction;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -59,5 +60,30 @@ namespace STIVE.WebAPI.Controllers
             return Ok(ArticleResponse);
 
         }
+
+        // POST: Article
+    //    [HttpPost]
+    //    public async Task<ActionResult<Article>> PostArticle(
+    //[FromServices] IAddArticle _addArticle,
+    //ArticleAddRequest article)
+    //    {
+    //        // Si aucune famille n'est spécifiée, continuer (famille_fk peut être NULL)
+    //        if (article.quantite != null)
+    //        {
+    //            var familleExists = await _dbContext.Familles.AnyAsync(f => f.Id == article.familleFK);
+    //            if (!familleExists)
+    //            {
+    //                return BadRequest(new { message = "La famille spécifiée n'existe pas." });
+    //            }
+    //        }
+
+    //        // Ajouter l'article
+    //        var r = await _addArticle.ExecuteAsync(article);
+
+    //        return CreatedAtAction("GetArticle", new { id = r.Id }, r);
+    //    }
+
+
+
     }
 }

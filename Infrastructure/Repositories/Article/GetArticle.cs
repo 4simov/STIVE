@@ -40,7 +40,10 @@ namespace STIVE.Core.UseCase.Article
                     prix_carton = article.prix_carton,
                     prix_unitaire = article.prix_unitaire,
                     quantite = article.quantite,
-                    
+                    fournisseurFK = article.fournisseur_fk,
+                    familleFK = article.famille_fk,
+                    image = article.image,
+
 
                 });
             }
