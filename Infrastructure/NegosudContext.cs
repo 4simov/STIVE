@@ -12,5 +12,7 @@ namespace STIVE.Infrastructure
         }
 
         public DbSet<Famille> Famille { get; set; }
+
+        public DbSet<Article> Article { get; set; }
     }
 }

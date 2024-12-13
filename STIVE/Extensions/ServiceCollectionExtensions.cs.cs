@@ -1,10 +1,13 @@
 ﻿using Core.DTO.Famille;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Core.UseCase.Famille;
+using STIVE.Core.UseCase.Article;
 using STIVE.Core.UseCase;
 using STIVE.Infrastructure;
 using Core.UseCase.Famille.Abstraction;
+using Core.UseCase.Article.Abstraction;
 using STIVE.Infrastructure.Repositories;
+
 
 namespace STIVE.Extensions
 {
@@ -15,6 +18,10 @@ namespace STIVE.Extensions
         {
             services.AddScoped<IGetFamille, GetFamille>();
             services.AddScoped<IAddFamille, AddFamille>();
+
+            services.AddScoped<IGetArticle, GetArticle>();
+            services.AddScoped<IAddArticle, AddArticle>();
+            
             return services;
         }
 
