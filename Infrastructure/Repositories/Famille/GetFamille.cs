@@ -1,17 +1,13 @@
 ﻿using Core.DTO.Famille;
 using Core.UseCase;
-using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Infrastructure;
 using System.Reflection.PortableExecutable;
 
 namespace STIVE.Core.UseCase.Famille
 {
-    public class GetFamille : BaseUseCase, IGetFamille
+    public class UpdateFamille : BaseUseCase, IGetFamille
     {
-        // Stocke le context de connexion de la base de donnée
-        private readonly NegosudContext _context;
-
         /// <summary>
         // On pratique ici ce que l'on appel une injection de dépendance, en gros le "context"
         // en paramètre récupère celui initialisé à l'appel de l'API et on le rattache en valeur privée et non modifiable 
@@ -19,7 +15,9 @@ namespace STIVE.Core.UseCase.Famille
         // "private readonly NegosudContext _context;"
         /// </summary>
         /// <param name="context"></param>
-        public GetFamille(NegosudContext context) : base(context)
+        private readonly NegosudContext _context;
+
+        public UpdateFamille(NegosudContext context) : base(context)
         {
             _context = context;
         }

@@ -1,14 +1,8 @@
 ﻿using Core.DTO.Famille;
 using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
-using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace STIVE.Infrastructure.Repositories
 {

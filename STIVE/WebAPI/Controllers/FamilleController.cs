@@ -36,26 +36,6 @@ namespace STIVE.WebAPI.Controllers
         {
             var resp = await _getFamille.ExecuteAsync();
             return Ok(resp);
-            var familles = await _context.Famille.ToListAsync();
-
-            List<FamilleResponse> familleResponse = new List<FamilleResponse>();
-            foreach (var famille in familles)
-            {
-                Console.WriteLine($"Type of Photo: {famille.Photo.GetType().FullName}");
-                Console.WriteLine($"Length of Photo: {famille.Photo.Length}");
-                familleResponse.Add(new FamilleResponse
-                {
-
-                    Id = famille.Id,
-                    Nom = famille.Nom,
-                    TypeVin = famille.TypeVin,
-                    Photo = famille.Photo,
-                               
-
-                });
-            }
-            return Ok(familleResponse);
-            
         }
 
 

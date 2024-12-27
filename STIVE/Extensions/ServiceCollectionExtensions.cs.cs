@@ -1,10 +1,10 @@
-﻿using Core.DTO.Famille;
-using STIVE.Core.UseCase.Famille.Abstraction;
+﻿using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Core.UseCase.Famille;
-using STIVE.Core.UseCase;
 using STIVE.Infrastructure;
 using Core.UseCase.Famille.Abstraction;
 using STIVE.Infrastructure.Repositories;
+using Core.UseCase.Adresse.Abstraction;
+using Infrastructure.Repositories.Adresse;
 
 namespace STIVE.Extensions
 {
@@ -13,8 +13,14 @@ namespace STIVE.Extensions
         // Enregistrement des UseCases
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
-            services.AddScoped<IGetFamille, GetFamille>();
+            services.AddScoped<IGetFamille, UpdateFamille>();
             services.AddScoped<IAddFamille, AddFamille>();
+
+            services.AddScoped<IAddAdresse, AddAdresse>();
+            services.AddScoped<IGetAdresse, GetAdresse>();
+            services.AddScoped<IDeleteAdresse, DeleteAdresse>();
+            services.AddScoped<IUpdateAdresse, UpdateAdresse>();
+
             return services;
         }
 
