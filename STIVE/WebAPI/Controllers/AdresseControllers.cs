@@ -45,7 +45,7 @@ namespace STIVE.WebAPI.Controllers
         // PUT: api/Adresse/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAdresse([FromServices] IUpdateAdresse _updateAdresse, AdresseAddRequest input, int id)
+        public async Task<IActionResult> PutAdresse([FromServices] IUpdateAdresse _updateAdresse, AdresseUpdateRequest input, int id)
         {
             input.Id = id;
             var r = await _updateAdresse.ExecuteAsync(input);

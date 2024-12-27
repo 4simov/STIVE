@@ -15,7 +15,7 @@ namespace Infrastructure.Repositories.Adresse
             _context = context;
         }
 
-        public async Task<AdresseResponse> ExecuteAsync(AdresseAddRequest input)
+        public async Task<AdresseResponse> ExecuteAsync(AdresseUpdateRequest input)
         {
             // Vérifie si l'adresse existe
             var adresseToUpdate = await _context.Adresse.FirstOrDefaultAsync(a => a.Id == input.Id);

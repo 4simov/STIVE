@@ -12,6 +12,6 @@ namespace Core.DTO.Adresse
         public string Pays { get; set; }
         public string Rue { get; set; }
         public string Ville { get; set; }
-        public int CodePostal { get; set; }
+        public string CodePostal { get; set; }
     }
 }

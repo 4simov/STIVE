@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.UseCase.Adresse.Abstraction
 {
-    public interface IUpdateAdresse : IUseCaseProcess<AdresseAddRequest, AdresseResponse>
+    public interface IUpdateAdresse : IUseCaseProcess<AdresseUpdateRequest, AdresseResponse>
     {
     }
 }
