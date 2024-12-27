@@ -6,21 +6,17 @@ using STIVE.Domain.Entities;
 
 namespace STIVE.Infrastructure.Repositories
 {
-    public class AddFamille : BaseUseCase, IAddFamille
+    public class AddFamille : BaseUseCase<NegosudContext>, IAddFamille
     {
-        // Stocke le context de connexion de la base de donnée
-        private readonly NegosudContext _context;
-
         public AddFamille(NegosudContext context) : base(context)
         {
-            _context = context;
         }
 
         public async Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
         {
             var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin, Photo= input.Photo };
-            var add = _context.Famille.Add(familleToAdd);
-            await _context.SaveChangesAsync();
+            var add = _dbContext.Famille.Add(familleToAdd);
+            await _dbContext.SaveChangesAsync();
 
             var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin, Photo = add.Entity.Photo};
 

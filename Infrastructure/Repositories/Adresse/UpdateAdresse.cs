@@ -6,19 +6,16 @@ using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.Adresse
 {
-    public class UpdateAdresse : BaseUseCase, IUpdateAdresse
+    public class UpdateAdresse : BaseUseCase<NegosudContext>, IUpdateAdresse
     {
-        private readonly NegosudContext _context;
-
         public UpdateAdresse(NegosudContext context) : base(context)
         {
-            _context = context;
         }
 
         public async Task<AdresseResponse> ExecuteAsync(AdresseUpdateRequest input)
         {
             // Vérifie si l'adresse existe
-            var adresseToUpdate = await _context.Adresse.FirstOrDefaultAsync(a => a.Id == input.Id);
+            var adresseToUpdate = await _dbContext.Adresse.FirstOrDefaultAsync(a => a.Id == input.Id);
 
             if (adresseToUpdate == null)
             {
@@ -32,8 +29,8 @@ namespace Infrastructure.Repositories.Adresse
             adresseToUpdate.CodePostal = input.CodePostal != default ? input.CodePostal : adresseToUpdate.CodePostal;
 
             // Sauvegarde les changements
-            _context.Adresse.Update(adresseToUpdate);
-            await _context.SaveChangesAsync();
+            _dbContext.Adresse.Update(adresseToUpdate);
+            await _dbContext.SaveChangesAsync();
 
             // Retourne la réponse
             return new AdresseResponse

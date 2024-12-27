@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Core.DTO.Adresse;
+using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase;
@@ -8,19 +9,16 @@ using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.Adresse
 {
-    public class DeleteAdresse : IDeleteAdresse, IUseCaseProcess<int, AdresseResponse>
+    public class DeleteAdresse : BaseUseCase<NegosudContext>, IDeleteAdresse, IUseCaseProcess<int, AdresseResponse>
     {
-        private readonly NegosudContext _context;
-
-        public DeleteAdresse(NegosudContext context)
+        public DeleteAdresse(NegosudContext context) : base(context)
         {
-            _context = context;
         }
 
         async Task<AdresseResponse> IUseCaseProcess<int, AdresseResponse>.ExecuteAsync(int id)
         {
             // Rechercher l'adresse par son ID
-            var adresseToDelete = await _context.Adresse.FirstOrDefaultAsync(a => a.Id == id);
+            var adresseToDelete = await _dbContext.Adresse.FirstOrDefaultAsync(a => a.Id == id);
 
             if (adresseToDelete == null)
             {
@@ -28,10 +26,10 @@ namespace Infrastructure.Repositories.Adresse
             }
 
             // Supprimer l'adresse
-            _context.Adresse.Remove(adresseToDelete);
+            _dbContext.Adresse.Remove(adresseToDelete);
 
             // Sauvegarder les changements
-            await _context.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
 
             // Retourne une réponse après suppression
             return new AdresseResponse
