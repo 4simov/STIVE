@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+using System.Text;
 using System.Threading.Tasks;
 using Core.DTO.Famille;
 using Core.UseCase.Famille.Abstraction;
@@ -10,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
+
+
 
 namespace STIVE.WebAPI.Controllers
 {
@@ -34,18 +38,22 @@ namespace STIVE.WebAPI.Controllers
             return Ok(resp);
         }
 
+
+
+
+
         // GET: api/Famille/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Famille>> GetFamille([FromServices] IGetFamille _getFamille, int id)
         {
             var famille = await _context.Famille.FindAsync(id);
 
-            if (famille == null)
+            if (famille == null || famille.Photo == null)
             {
                 return NotFound();
             }
-
-            return famille;
+            return File(famille.Photo, "image/jpeg");
+            //return famille;
         }
 
         // PUT: api/Famille/5
@@ -111,5 +119,8 @@ namespace STIVE.WebAPI.Controllers
         {
             return _context.Famille.Any(e => e.Id == id);
         }
+        
+
     }
+
 }

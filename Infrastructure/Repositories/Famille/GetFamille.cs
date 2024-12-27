@@ -2,6 +2,7 @@
 using Core.UseCase;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Infrastructure;
+using System.Reflection.PortableExecutable;
 
 namespace STIVE.Core.UseCase.Famille
 {
@@ -33,6 +34,7 @@ namespace STIVE.Core.UseCase.Famille
                     Id = famille.Id,
                     Nom = famille.Nom,
                     TypeVin = famille.TypeVin,
+                    Photo = famille.Photo,
                 });
             }
 

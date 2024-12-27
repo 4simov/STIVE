@@ -6,5 +6,7 @@
         public string Nom { get; set; }
         public int TypeVin { get; set; }
 
+        public byte[] Photo { get; set; }
+
     }
 }

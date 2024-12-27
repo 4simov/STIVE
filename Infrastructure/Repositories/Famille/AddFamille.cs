@@ -18,11 +18,11 @@ namespace STIVE.Infrastructure.Repositories
 
         public async Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
         {
-            var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin };
+            var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin, Photo= input.Photo };
             var add = _context.Famille.Add(familleToAdd);
             await _context.SaveChangesAsync();
 
-            var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin};
+            var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin, Photo = add.Entity.Photo};
 
             return await Task.FromResult(resp);
         }
