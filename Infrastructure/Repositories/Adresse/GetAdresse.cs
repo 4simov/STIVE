@@ -3,7 +3,7 @@ using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
 using STIVE.Infrastructure;
 
-namespace Infrastructure.Repositories.Adresse
+namespace Infrastructure.Repositories.AdresseNS
 {
     public class GetAdresse : BaseUseCase<NegosudContext>, IGetAdresse
     {

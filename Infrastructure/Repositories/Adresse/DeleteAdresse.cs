@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase;
 using STIVE.Infrastructure;
 
-namespace Infrastructure.Repositories.Adresse
+namespace Infrastructure.Repositories.AdresseNS
 {
     public class DeleteAdresse : BaseUseCase<NegosudContext>, IDeleteAdresse, IUseCaseProcess<int, AdresseResponse>
     {

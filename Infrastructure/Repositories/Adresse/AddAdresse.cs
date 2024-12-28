@@ -1,10 +1,10 @@
 ﻿using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
-using STIVE.Domain.Entities;
 using Core.DTO.Adresse;
-using STIVE.Core.UseCase;
+using STIVE.Infrastructure;
+using STIVE.Domain.Entities;
 
-namespace STIVE.Infrastructure.Repositories
+namespace Infrastructure.Repositories.AdresseNS
 {
     public class AddAdresse : BaseUseCase<NegosudContext>, IAddAdresse
     {

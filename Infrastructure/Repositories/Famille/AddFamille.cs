@@ -2,9 +2,10 @@
 using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
+using STIVE.Infrastructure;
 
 
-namespace STIVE.Infrastructure.Repositories
+namespace Infrastructure.Repositories.FamilleNS
 {
     public class AddFamille : BaseUseCase<NegosudContext>, IAddFamille
     {

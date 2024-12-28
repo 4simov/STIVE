@@ -4,7 +4,7 @@ using Core.UseCase.Adresse.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Infrastructure;
 
-namespace Infrastructure.Repositories.Adresse
+namespace Infrastructure.Repositories.AdresseNS
 {
     public class UpdateAdresse : BaseUseCase<NegosudContext>, IUpdateAdresse
     {
