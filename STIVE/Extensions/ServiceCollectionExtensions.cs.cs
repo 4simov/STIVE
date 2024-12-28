@@ -28,6 +28,7 @@ namespace STIVE.Extensions
 
             services.AddScoped<IAddUtilisateur, AddUtilisateur>();
             services.AddScoped<ILogin, Login>();
+            services.AddScoped<IResetPassword, ResetPassword>();
 
             return services;
         }

@@ -50,8 +50,7 @@ namespace STIVE.WebAPI.Controllers
             //return famille;
         }
 
-        // PUT: api/Famille/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Policy = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFamille(int id, Famille famille)
         {
@@ -82,8 +81,8 @@ namespace STIVE.WebAPI.Controllers
         }
 
         // POST: api/Famille
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Policy ="Admin")]
         public async Task<ActionResult<Famille>> PostFamille( [FromServices] IAddFamille _addFamille, FamilleAddRequest famille)
         {
             var r = await _addFamille.ExecuteAsync(famille);
@@ -93,6 +92,7 @@ namespace STIVE.WebAPI.Controllers
 
         // DELETE: api/Famille/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "Admin")]
         public async Task<IActionResult> DeleteFamille(int id)
         {
             var famille = await _context.Famille.FindAsync(id);

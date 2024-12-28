@@ -8,6 +8,7 @@ using Core.DTO.Utilisateur;
 using Core.Services.Token;
 using Core.UseCase.Utilisateur;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -53,14 +54,12 @@ namespace STIVE.WebAPI.Controllers
                 return NotFound();
             }
             return File(famille.Photo, "image/jpeg");
-            //return famille;
         }
 
-        // PUT: api/Famille/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFamille(int id, Utilisateur utilisateur)
+        public async Task<IActionResult> PutUtilisateur([FromServices] IUpdateUtilisateur _updateUtilisateur, int id, UtilisateurUpdateRequest request)
         {
+            var resp = _updateUtilisateur.ExecuteAsync(request);
             return NoContent();
         }
 
@@ -83,6 +82,14 @@ namespace STIVE.WebAPI.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpPost("reset-password")]
+        [Authorize(Policy ="Client")]
+        public async Task<IActionResult> Authentification([FromServices] IResetPassword _reset, UtilisateurUpdateRequest request)
+        {
+            var resp = await _reset.ExecuteAsync(request);
+            return Ok(resp);
         }
     }
 
