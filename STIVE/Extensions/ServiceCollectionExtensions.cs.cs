@@ -1,10 +1,13 @@
 ﻿using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Core.UseCase.Famille;
 using STIVE.Infrastructure;
 using Core.UseCase.Famille.Abstraction;
-using STIVE.Infrastructure.Repositories;
 using Core.UseCase.Adresse.Abstraction;
-using Infrastructure.Repositories.Adresse;
+using Core.UseCase.Utilisateur;
+using Infrastructure.Repositories.AdresseNS;
+using Infrastructure.Repositories.FamilleNS;
+using Infrastructure.Repositories.UtilisateurNS;
+using Core.Services.Token;
+using Infrastructure.Services.Jwt;
 
 namespace STIVE.Extensions
 {
@@ -20,6 +23,12 @@ namespace STIVE.Extensions
             services.AddScoped<IGetAdresse, GetAdresse>();
             services.AddScoped<IDeleteAdresse, DeleteAdresse>();
             services.AddScoped<IUpdateAdresse, UpdateAdresse>();
+
+            services.AddScoped<ITokenGenerator, MyJwt>();
+
+            services.AddScoped<IAddUtilisateur, AddUtilisateur>();
+            services.AddScoped<ILogin, Login>();
+            services.AddScoped<IResetPassword, ResetPassword>();
 
             return services;
         }

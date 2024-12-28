@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using STIVE.Domain.Entities;
 
 namespace STIVE.Infrastructure
@@ -13,5 +14,6 @@ namespace STIVE.Infrastructure
 
         public DbSet<Famille> Famille { get; set; }
         public DbSet<Adresse> Adresse { get; set; }
+        public DbSet<Utilisateur> Utilisateur { get; set; }
     }
 }

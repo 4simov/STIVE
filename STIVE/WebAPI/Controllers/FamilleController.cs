@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using Core.DTO.Famille;
+﻿using Core.DTO.Famille;
 using Core.UseCase.Famille.Abstraction;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
@@ -56,8 +50,7 @@ namespace STIVE.WebAPI.Controllers
             //return famille;
         }
 
-        // PUT: api/Famille/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Policy = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFamille(int id, Famille famille)
         {
@@ -88,12 +81,10 @@ namespace STIVE.WebAPI.Controllers
         }
 
         // POST: api/Famille
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Policy ="Admin")]
         public async Task<ActionResult<Famille>> PostFamille( [FromServices] IAddFamille _addFamille, FamilleAddRequest famille)
         {
-            //_context.Famille.Add(new Famille { Nom = famille.Nom, TypeVin = famille.TypeVin });
-            //await _context.SaveChangesAsync();
             var r = await _addFamille.ExecuteAsync(famille);
 
             return CreatedAtAction("GetFamille", r);
@@ -101,6 +92,7 @@ namespace STIVE.WebAPI.Controllers
 
         // DELETE: api/Famille/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "Admin")]
         public async Task<IActionResult> DeleteFamille(int id)
         {
             var famille = await _context.Famille.FindAsync(id);

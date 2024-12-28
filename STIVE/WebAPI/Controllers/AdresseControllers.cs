@@ -1,7 +1,7 @@
 ﻿using Core.DTO.Adresse;
 using Core.UseCase.Adresse.Abstraction;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
 
