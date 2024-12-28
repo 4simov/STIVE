@@ -1,15 +1,15 @@
 ﻿using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Infrastructure;
 using Core.UseCase.Famille.Abstraction;
 using Core.UseCase.Adresse.Abstraction;
 using Core.UseCase.Utilisateur;
 using Infrastructure.Repositories.AdresseNS;
 using Infrastructure.Repositories.FamilleNS;
 using Infrastructure.Repositories.UtilisateurNS;
-using Core.Services.Token;
 using Infrastructure.Services.Jwt;
+using Core.Services.Token;
+using STIVE.Infrastructure;
 
-namespace STIVE.Extensions
+namespace Infrastructure.Services.Token
 {
     public static class ServiceCollectionExtensions
     {

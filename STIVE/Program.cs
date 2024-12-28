@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Core.UseCase.Famille;
 using STIVE.Infrastructure;
-using STIVE.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Infrastructure.Services.Token;
 
 var builder = WebApplication.CreateBuilder(args);
 

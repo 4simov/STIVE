@@ -4,11 +4,8 @@ using Core.DTO.Adresse;
 using Core.UseCase;
 using Core.UseCase.Utilisateur;
 using Domain.Entities;
-using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
 using Domain.Enums;
-using System.Security.Cryptography;
-using System.Text;
 using Infrastructure.Services.NewFolder;
 using Core.UseCase.Adresse.Abstraction;
 
