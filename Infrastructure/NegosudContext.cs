@@ -15,5 +15,6 @@ namespace STIVE.Infrastructure
         public DbSet<Famille> Famille { get; set; }
         public DbSet<Adresse> Adresse { get; set; }
         public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<Fournisseur> Fournisseur { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using Infrastructure.Repositories.UtilisateurNS;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
 using STIVE.Infrastructure;
+using Infrastructure.Repositories.FournisseurNS;
+using Core.UseCase.Fournisseur;
 
 namespace Infrastructure.Services.Token
 {
@@ -23,6 +25,11 @@ namespace Infrastructure.Services.Token
             services.AddScoped<IGetAdresse, GetAdresse>();
             services.AddScoped<IDeleteAdresse, DeleteAdresse>();
             services.AddScoped<IUpdateAdresse, UpdateAdresse>();
+
+            services.AddScoped<IAddFournisseur, AddFournisseur>();
+            services.AddScoped<IGetFournisseur, GetFournisseur>();
+            services.AddScoped<IDeleteFournisseur, DeleteFournisseur>();
+            services.AddScoped<IUpdateFournisseur, UpdateFournisseur>();
 
             services.AddScoped<ITokenGenerator, MyJwt>();
 
