@@ -15,3 +15,4 @@ namespace Core.DTO.Utilisateur
         public string? Mdp { get; set; }
     }
 } 
+ 
