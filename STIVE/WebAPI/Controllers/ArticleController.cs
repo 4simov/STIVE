@@ -30,58 +30,31 @@ namespace STIVE.WebAPI.Controllers
             _context = context;
 
         }
-
-        // GET: Article
         [HttpGet]
         public async Task<IActionResult> GetArticle([FromServices] IGetArticle _getArticle)
         {
-            var resp = await _getArticle.ExecuteAsync();
-            return Ok(resp);
-            var articles = await _context.Article.ToListAsync();
+            
+            var articles = await _context.Article.Include(a => a.Famille).ToListAsync();
 
             List<ArticleResponse> ArticleResponse = new List<ArticleResponse>();
             foreach (var article in articles)
             {
-
                 ArticleResponse.Add(new ArticleResponse
                 {
-
                     Id = article.Id,
                     quantite = article.quantite,
                     prix_unitaire = article.prix_unitaire,
                     prix_carton = article.prix_carton,
                     nom = article.nom,
                     description = article.description,
-
-
-
+                    familleFK = article.famille_fk,
+                    familleNom = article.Famille.Nom  // Récupère le nom de la famille
                 });
             }
-            return Ok(ArticleResponse);
 
+            return Ok(ArticleResponse);
         }
 
-        // POST: Article
-    //    [HttpPost]
-    //    public async Task<ActionResult<Article>> PostArticle(
-    //[FromServices] IAddArticle _addArticle,
-    //ArticleAddRequest article)
-    //    {
-    //        // Si aucune famille n'est spécifiée, continuer (famille_fk peut être NULL)
-    //        if (article.quantite != null)
-    //        {
-    //            var familleExists = await _dbContext.Familles.AnyAsync(f => f.Id == article.familleFK);
-    //            if (!familleExists)
-    //            {
-    //                return BadRequest(new { message = "La famille spécifiée n'existe pas." });
-    //            }
-    //        }
-
-    //        // Ajouter l'article
-    //        var r = await _addArticle.ExecuteAsync(article);
-
-    //        return CreatedAtAction("GetArticle", new { id = r.Id }, r);
-    //    }
 
 
 

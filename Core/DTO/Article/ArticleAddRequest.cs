@@ -19,6 +19,6 @@ namespace Core.DTO.Article
         //Clé étrangère 
         public int familleFK { get; set; }
         public int fournisseurFK { get; set; }
-
+       
     }
 }

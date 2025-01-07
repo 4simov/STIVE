@@ -33,7 +33,7 @@ public class AddArticle : BaseUseCase, IAddArticle
             quantite = input.quantite,
             description = input.description,
             fournisseur_fk = input.fournisseurFK,
-            famille_fk = input.familleFK,
+            //famille_fk = input.familleFK,
             
 
         };
