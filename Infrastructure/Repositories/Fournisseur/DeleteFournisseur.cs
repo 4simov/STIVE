@@ -40,7 +40,7 @@ namespace Infrastructure.Repositories.FournisseurNS
             {
                 Id = adresseToDelete.Id,
                 Nom = adresseToDelete.Nom,
-                AdresseFK = adresseToDelete.AdresseFk
+                AdresseFK = adresseToDelete.AdresseId
             };
         }
     }

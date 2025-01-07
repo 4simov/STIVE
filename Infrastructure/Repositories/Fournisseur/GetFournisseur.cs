@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories.FournisseurNS
                 {
                     Id = Fournisseur.Id,
                     Nom = Fournisseur.Nom,
-                    AdresseFK = Fournisseur.AdresseFk
+                    AdresseFK = Fournisseur.AdresseId
                 });
             }
 

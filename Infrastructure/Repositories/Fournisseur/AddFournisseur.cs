@@ -22,11 +22,11 @@ namespace Infrastructure.Repositories.FournisseurNS
         }
         public async Task<FournisseurResponse> ExecuteAsync(FournisseurAddRequest input)
         {
-            var fournisseurToAdd = new Fournisseur { Nom = input.Nom, AdresseFk = input.AdresseFK };
+            var fournisseurToAdd = new Fournisseur { Nom = input.Nom, AdresseId = input.AdresseFK };
             var add = _dbContext.Fournisseur.Add(fournisseurToAdd);
             await _dbContext.SaveChangesAsync();
 
-            var resp = new FournisseurResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, AdresseFK = add.Entity.AdresseFk };
+            var resp = new FournisseurResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, AdresseFK = add.Entity.AdresseId };
 
             return await Task.FromResult(resp);
         }

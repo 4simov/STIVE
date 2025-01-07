@@ -14,7 +14,7 @@ namespace Domain.Entities
         public string Nom { get; set; }
 
         [Column("adresse_fk")]
-        public int AdresseFk { get; set; }
+        public int AdresseId { get; set; }
         public Adresse ?Adresse { get; set; }
     }
 }

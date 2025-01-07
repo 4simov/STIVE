@@ -10,6 +10,7 @@ namespace Core.DTO.Fournisseur
     {
         public int? Id { get; set; }
         public string Nom { get; set; }
-        public int AdresseFK { get; set; }
+        public int AdresseId { get; set; }
+        public Adresse Adresse { get; set; }
     }
 }
