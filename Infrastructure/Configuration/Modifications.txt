@@ -1,0 +1,2 @@
+ALTER TABLE Utilisateur
+ADD COLUMN role INT DEFAULT 2;

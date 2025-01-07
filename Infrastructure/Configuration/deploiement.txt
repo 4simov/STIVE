@@ -80,3 +80,12 @@ CREATE TABLE item_commande (
     FOREIGN KEY (commande_fk) REFERENCES commande(id),
     FOREIGN KEY (article_fk) REFERENCES article(id)
 );
+
+CREATE TABLE image_article (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    article_fk INT NOT NULL,           
+    url VARCHAR(255) NOT NULL,         
+
+    CONSTRAINT fk_article FOREIGN KEY (article_fk) REFERENCES article(id) 
+    ON DELETE CASCADE ON UPDATE CASCADE
+);

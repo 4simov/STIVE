@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using STIVE.Domain.Entities;
 
 namespace STIVE.Infrastructure
@@ -23,5 +24,7 @@ namespace STIVE.Infrastructure
                 .HasForeignKey(a => a.famille_fk);  // La clé étrangère dans Article qui pointe vers Famille
         }
 
+        public DbSet<Adresse> Adresse { get; set; }
+        public DbSet<Utilisateur> Utilisateur { get; set;
     }
 }

@@ -10,9 +10,9 @@ namespace Core.UseCase
     /// <summary>
     /// Oblige la déclaration d'un contrusteur avec en paramètre le context de BDD du Endpoint/ "Terminaison de controller"
     /// </summary>
-    public class BaseUseCase
+    public abstract class BaseUseCase<T>
     {
-        private readonly DbContext _context;
+        protected T _dbContext;
 
         /// <summary>
         /// On pratique ici ce que l'on appel une injection de dépendance, en gros le "context"
@@ -21,9 +21,9 @@ namespace Core.UseCase
         /// "private readonly NegosudContext _context;"
         /// </summary>
         /// <param name="context"></param>
-        public BaseUseCase(DbContext context) 
+        public BaseUseCase(T context) 
         {
-            _context = context;
+            _dbContext = context;
         }
     }
 }
