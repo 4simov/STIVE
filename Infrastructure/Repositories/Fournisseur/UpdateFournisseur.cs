@@ -30,7 +30,7 @@ namespace Infrastructure.Repositories.FournisseurNS
 
             // Met à jour les champs de l'adresse
             adresseToUpdate.Nom = input.Nom ?? adresseToUpdate.Nom;
-            adresseToUpdate.AdresseId = input.AdresseFK;
+            adresseToUpdate.AdresseId = input.AdresseFK ?? adresseToUpdate.AdresseId;
 
             // Sauvegarde les changements
             _dbContext.Fournisseur.Update(adresseToUpdate);
