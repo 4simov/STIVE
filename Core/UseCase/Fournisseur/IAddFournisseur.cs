@@ -1,5 +1,4 @@
-﻿using Core.DTO.Adresse;
-using Core.DTO.Fournisseur;
+﻿using Core.DTO.Fournisseur;
 using STIVE.Core.UseCase;
 using System;
 using System.Collections.Generic;

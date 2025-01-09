@@ -8,8 +8,10 @@ namespace Core.DTO.Fournisseur
 {
     public class FournisseurAddRequest
     {
-        public int? Id { get; set; }
         public string Nom { get; set; }
-        public int AdresseFK { get; set; }
+        public string Pays { get; set; }
+        public string Rue { get; set; }
+        public string Ville { get; set; }
+        public string CodePostal { get; set; }
     }
 }

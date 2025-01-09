@@ -20,7 +20,7 @@ namespace Infrastructure.Repositories.FournisseurNS
 
         public Task<List<FournisseurResponse>> ExecuteAsync()
         {
-            var Fournisseurs = _dbContext.Fournisseur.ToList();
+            var Fournisseurs = _dbContext.Fournisseur.Include( f => f.Adresse).ToList();
 
             List<FournisseurResponse> FournisseurResponse = new List<FournisseurResponse>();
             foreach (var Fournisseur in Fournisseurs)
@@ -29,7 +29,8 @@ namespace Infrastructure.Repositories.FournisseurNS
                 {
                     Id = Fournisseur.Id,
                     Nom = Fournisseur.Nom,
-                    AdresseFK = Fournisseur.AdresseId
+                    AdresseId = Fournisseur.AdresseId,
+                    Adresse = Fournisseur.Adresse
                 });
             }
 

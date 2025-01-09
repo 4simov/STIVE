@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.Adresse
+namespace Core.DTO.AdresseDTO
 {
     public class AdresseUpdateRequest
     {

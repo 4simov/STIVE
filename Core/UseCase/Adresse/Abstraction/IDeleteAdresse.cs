@@ -1,4 +1,4 @@
-﻿using Core.DTO.Adresse;
+﻿using Core.DTO.AdresseDTO;
 using STIVE.Core.UseCase;
 using System;
 using System.Collections.Generic;

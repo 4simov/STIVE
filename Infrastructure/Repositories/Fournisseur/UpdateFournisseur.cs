@@ -41,7 +41,7 @@ namespace Infrastructure.Repositories.FournisseurNS
             {
                 Id = adresseToUpdate.Id,
                 Nom = adresseToUpdate.Nom,
-                AdresseFK = adresseToUpdate.AdresseId,
+                AdresseId = adresseToUpdate.AdresseId,
             };
         }
     }

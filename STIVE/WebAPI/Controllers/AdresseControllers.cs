@@ -1,4 +1,4 @@
-﻿using Core.DTO.Adresse;
+﻿using Core.DTO.AdresseDTO;
 using Core.UseCase.Adresse.Abstraction;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -56,11 +56,11 @@ namespace STIVE.WebAPI.Controllers
         // POST: api/Adresse
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Adresse>> PostAdresse([FromServices] IAddAdresse _addAdresse, AdresseAddRequest Adresse)
+        public async Task<ActionResult<Adresse>> PostAdresse([FromServices] IAddAdresse _addAdresse, AdresseAddRequest request)
         {
             //_context.Adresse.Add(new Adresse { Nom = Adresse.Nom, TypeVin = Adresse.TypeVin });
             //await _context.SaveChangesAsync();
-            var r = await _addAdresse.ExecuteAsync(Adresse);
+            var r = await _addAdresse.ExecuteAsync(request);
 
             return CreatedAtAction("GetAdresse", r);
         }

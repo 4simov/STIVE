@@ -21,16 +21,24 @@ namespace Infrastructure.Repositories.FournisseurNS
 
         async Task<FournisseurResponse> IUseCaseProcess<int, FournisseurResponse>.ExecuteAsync(int id)
         {
-            // Rechercher l'adresse par son ID
-            var adresseToDelete = await _dbContext.Fournisseur.FirstOrDefaultAsync(a => a.Id == id);
-
-            if (adresseToDelete == null)
+            var fournisseur = await _dbContext.Fournisseur.FirstOrDefaultAsync(a => a.Id == id);
+            if (fournisseur == null)
             {
                 throw new KeyNotFoundException($"Fournisseur avec l'ID {id} n'a pas été trouvée.");
             }
+            // Rechercher l'adresse par son ID
+            var adresseToDelete = _dbContext.Adresse.FirstOrDefault(a => a.Id == fournisseur.AdresseId);
+                
+            if (adresseToDelete == null)
+            {
+                throw new KeyNotFoundException($"L'adresse avec l'ID {fournisseur.AdresseId} n'a pas été trouvée.");
+            }
 
-            // Supprimer l'adresse
-            _dbContext.Fournisseur.Remove(adresseToDelete);
+            // Suppression de l'adresse
+            _dbContext.Adresse.Remove(adresseToDelete);
+
+            // Suppression du fournisseur
+            _dbContext.Fournisseur.Remove(fournisseur);
 
             // Sauvegarder les changements
             await _dbContext.SaveChangesAsync();
@@ -38,9 +46,9 @@ namespace Infrastructure.Repositories.FournisseurNS
             // Retourne une réponse après suppression
             return new FournisseurResponse
             {
-                Id = adresseToDelete.Id,
-                Nom = adresseToDelete.Nom,
-                AdresseFK = adresseToDelete.AdresseId
+                Id = fournisseur.Id,
+                Nom = fournisseur.Nom,
+                AdresseId = adresseToDelete.Id
             };
         }
     }
