@@ -1,25 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.DTO.Article;
+using STIVE.Domain.Entities;
 
-namespace Core.DTO.Article
+namespace Core.DTO.ArticleDTO
 {
-    public class ArticleResponse
+    public class ArticleResponse : IResponseHelper<Article, ArticleResponse>
     {
         public int Id { get; set; }
 
-        public string nom { get; set; }
-        public float prix_carton { get; set; }
-        public float prix_unitaire { get; set; }
-        public int quantite { get; set; }
-        public string description { get; set; }
-        public byte[] image { get; set; }
+        public string Nom { get; set; }
+        public float PrixCarton { get; set; }
+        public float PrixUnitaire { get; set; }
+        public int Quantite { get; set; }
+        public int QuantiteAuto { get; set; }
+        public string Description { get; set; }
+        public byte ReapprovisonnementAuto { get; set; }
+        public byte[] Image { get; set; }
         //Clé étrangère 
-        public int familleFK { get; set; }
-        public int fournisseurFK { get; set; }
-        public string familleNom { get; set; }
+        public int FamilleId { get; set; }
+        public int FournisseurId { get; set; }
+        public string FournisseurNom {  get; set; }
+        public string FamilleNom { get; set; }
+
+        public ArticleResponse GetResponse(Article source)
+        {
+            // Création de la réponse
+            var resp = new ArticleResponse
+            {
+                Id = source.Id,
+                Nom = source.Nom,
+                //à implémenter quand on aura la table article_prix
+                PrixCarton = 0,
+                //à implémenter quand on aura la table article_prix
+                PrixUnitaire = 0,
+                //à implémenter quand on aura la table Stock
+                Quantite = 0,
+                Description = source.Description,
+                FournisseurId = source.FournisseurId,
+                FamilleId = source.FamilleId,
+                //à implémenter
+                Image = null
+            };
+
+            return resp;
+        }
     }
 }

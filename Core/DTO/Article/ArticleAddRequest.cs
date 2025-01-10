@@ -5,20 +5,19 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.Article
+namespace Core.DTO.ArticleDTO
 {
     public class ArticleAddRequest
     {
-        public string nom { get; set; }
-        public float prix_carton { get; set; }
-        public float prix_unitaire { get; set; }
-        public int quantite { get; set; }
-        public string description { get; set; }
-
-        public byte[] image { get; set; }
-        //Clé étrangère 
-        public int familleFK { get; set; }
-        public int fournisseurFK { get; set; }
-       
+        public string Nom { get; set; }
+        public int FamilleId { get; set; }
+        public int FournisseurId { get; set; }
+        public int SeuilMinimum { get; set; }
+        public byte ReapprovisionnementAuto { get; set; }
+        public int QuantiteAuto { get; set; }
+        public string Description { get; set; }
+        // A ajouter quand la table prix_article sera prise en charge
+        public float PrixUnitaire { get; set; }
+        public float? PrixCarton { get; set; }
     }
 }

@@ -1,18 +1,11 @@
-﻿using Core.DTO.Article;
+﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
-using Core.UseCase.Article.Abstraction;
+using Core.UseCase.Article;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
 
 namespace STIVE.Infrastructure.Repositories;
-public class AddArticle : BaseUseCase, IAddArticle
+
+public class AddArticle : BaseUseCase<NegosudContext>, IAddArticle
 {
     // Stocke le contexte de connexion à la base de données
     private readonly NegosudContext _context;
@@ -27,15 +20,14 @@ public class AddArticle : BaseUseCase, IAddArticle
         // Création de l'article à ajouter
         var articleToAdd = new Article
         {
-            nom = input.nom,
-            prix_carton = input.prix_carton,
-            prix_unitaire = input.prix_unitaire,
-            quantite = input.quantite,
-            description = input.description,
-            fournisseur_fk = input.fournisseurFK,
-            //famille_fk = input.familleFK,
-            
-
+            Nom = input.Nom,
+            Description = input.Description,
+            FournisseurId = input.FournisseurId,
+            FamilleId = input.FamilleId,
+            ReapprovisonnementAuto = input.ReapprovisionnementAuto,
+            QuantiteAuto = input.QuantiteAuto,
+            SeuilMinimum = input.SeuilMinimum,
+            IsDelete = 0
         };
 
         // Ajout de l'article dans le contexte
@@ -46,16 +38,20 @@ public class AddArticle : BaseUseCase, IAddArticle
         var resp = new ArticleResponse
         {
             Id = add.Entity.Id,
-            nom = add.Entity.nom,
-            prix_carton = add.Entity.prix_carton,
-            prix_unitaire = add.Entity.prix_unitaire,
-            quantite = add.Entity.quantite,
-            description = add.Entity.description,
-            fournisseurFK = input.fournisseurFK,
-            familleFK = input.familleFK,
-            image = input.image,
+            Nom = add.Entity.Nom,
+            //à implémenter quand on aura la table article_prix
+            PrixCarton = 0,
+            //à implémenter quand on aura la table article_prix
+            PrixUnitaire = 0,
+            //à implémenter quand on aura la table Stock
+            Quantite = 0,
+            Description = add.Entity.Description,
+            FournisseurId = input.FournisseurId,
+            FamilleId = input.FamilleId,
+            //à implémenter
+            Image = null
         };
-
+        
         return await Task.FromResult(resp);
     }
 }

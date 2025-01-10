@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using Core.DTO.Article;
-using Core.DTO.Famille;
-using Core.UseCase.Article.Abstraction;
-using Core.UseCase.Famille.Abstraction;
-using Microsoft.AspNetCore.Http;
+using Core.DTO.ArticleDTO;
+using Core.UseCase.Article;
+using Core.UseCase.ArticleDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using STIVE.Core.UseCase.Article;
-using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
+using STIVE.Infrastructure.Repositories;
 
 namespace STIVE.WebAPI.Controllers
 {
@@ -23,7 +15,6 @@ namespace STIVE.WebAPI.Controllers
     public class ArticleController : ControllerBase
     {
         private readonly NegosudContext _context;
-        private readonly IGetFamille _getArticle;
 
         public ArticleController(NegosudContext context)
         {
@@ -32,31 +23,36 @@ namespace STIVE.WebAPI.Controllers
         }
         [HttpGet]
         public async Task<IActionResult> GetArticle([FromServices] IGetArticle _getArticle)
-        {
-            
-            var articles = await _context.Article.Include(a => a.Famille).ToListAsync();
+        { 
+            var articles = await _getArticle.ExecuteAsync();
 
-            List<ArticleResponse> ArticleResponse = new List<ArticleResponse>();
-            foreach (var article in articles)
-            {
-                ArticleResponse.Add(new ArticleResponse
-                {
-                    Id = article.Id,
-                    quantite = article.quantite,
-                    prix_unitaire = article.prix_unitaire,
-                    prix_carton = article.prix_carton,
-                    nom = article.nom,
-                    description = article.description,
-                    familleFK = article.famille_fk,
-                    familleNom = article.Famille.Nom  // Récupère le nom de la famille
-                });
-            }
-
-            return Ok(ArticleResponse);
+            return Ok(articles);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddArticle([FromServices] IAddArticle _addArticle, ArticleAddRequest request)
+        {
+            var article = await _addArticle.ExecuteAsync(request);
 
+            return Ok(article);
+        }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutArticle([FromServices] IUpdateArticle _updateArticle, ArticleUpdateRequest request, int id)
+        {
+            request.Id = id;
+            var article = _updateArticle.ExecuteAsync(request);
+
+            return Ok(article);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteArticle([FromServices] IDeleteArticle _deleteArticle, int id)
+        {
+            var article = await _deleteArticle.ExecuteAsync(id);
+
+            return Ok(article);
+        }
 
     }
 }

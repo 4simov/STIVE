@@ -1,14 +1,11 @@
-﻿using Core.DTO.Article;
+﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
-using Core.UseCase.Article.Abstraction;
-using Microsoft.EntityFrameworkCore;
-using STIVE.Core.UseCase.Article;
+using Core.UseCase.Article;
 using STIVE.Infrastructure;
-using System.Reflection.PortableExecutable;
 
 namespace STIVE.Core.UseCase.Article
 {
-    public class GetArticle : BaseUseCase, IGetArticle
+    public class GetArticle : BaseUseCase<NegosudContext>, IGetArticle
     {
         // Stocke le context de connexion de la base de donnée
         private readonly NegosudContext _context;
@@ -32,22 +29,9 @@ namespace STIVE.Core.UseCase.Article
             List<ArticleResponse> articleResponse = new List<ArticleResponse>();
             foreach (var article in articles)
             {
-                articleResponse.Add(new ArticleResponse
-                {
-                    Id = article.Id,                    
-                    nom = article.nom,
-                    description = article.description,
-                    prix_carton = article.prix_carton,
-                    prix_unitaire = article.prix_unitaire,
-                    quantite = article.quantite,
-                    fournisseurFK = article.fournisseur_fk,
-                    familleFK = article.famille_fk,
-                    image = article.image,
-
-
-                });
+                articleResponse.Add(new ArticleResponse().GetResponse(article));
             }
-
+            
             return Task.FromResult(articleResponse);
         }
     }

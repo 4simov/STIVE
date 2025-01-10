@@ -1,2 +1,10 @@
 ALTER TABLE Utilisateur
 ADD COLUMN role INT DEFAULT 2;
+
+ALTER TABLE Article
+MODIFY COLUMN reaprovisionnement_auto BOOLEAN DEFAULT false;
+
+# changer reaprovisionnement_auto en reapprovisionnement_auto
+
+ALTER TABLE Article
+ADD COLUMN is_delete BOOLEAN DEFAULT false;

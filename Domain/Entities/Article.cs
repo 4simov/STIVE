@@ -10,18 +10,24 @@ namespace STIVE.Domain.Entities
     public class Article
     {
         public int Id { get; set; }
-
-        public string nom { get; set; }
-        public float prix_carton { get; set; }
-        public float prix_unitaire { get; set; }
-        public int quantite { get; set; }
-        public string description { get; set; }
-        public byte[] image { get; set; }
-        //Clé étrangère 
-        public int famille_fk { get; set; }
-        public int fournisseur_fk { get; set; }
+        public string Nom { get; set; }
+        [Column("famille_fk")]
+        public int FamilleId { get; set; }
         public Famille Famille { get; set; }
-
+        [Column("fournisseur_fk")]
+        public int FournisseurId { get; set; }
+        //public Fournisseur Fournisseur { get; set; }
+        [Column("seuil_minimum")]
+        public int SeuilMinimum { get; set; }
+        [Column("reapprovisionnement_auto")]
+        public byte ReapprovisonnementAuto { get; set; }
+        [Column("quantite_auto")]
+        public int QuantiteAuto { get; set; }
+        public string Description { get; set; }
+        [Column("is_delete")]
+        public byte IsDelete { get; set; }
+        //public float PrixUnitaire { get; set; }
+        //public float? PrixCarton { get; set; }
     }
 }
 
