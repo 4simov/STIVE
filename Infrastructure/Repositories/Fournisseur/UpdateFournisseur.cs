@@ -21,27 +21,40 @@ namespace Infrastructure.Repositories.FournisseurNS
         public async Task<FournisseurResponse> ExecuteAsync(FournisseurUpdateRequest input)
         {
             // Vérifie si l'adresse existe
-            var adresseToUpdate = await _dbContext.Fournisseur.FirstOrDefaultAsync(a => a.Id == input.Id);
+            var fournisseurToUpdate = await _dbContext.Fournisseur.FirstOrDefaultAsync(a => a.Id == input.Id);
+            
 
-            if (adresseToUpdate == null)
+            if (fournisseurToUpdate == null)
             {
                 throw new KeyNotFoundException($"Fournisseur avec l'ID {input.Id} n'a pas été trouvée.");
             }
 
             // Met à jour les champs de l'adresse
-            adresseToUpdate.Nom = input.Nom ?? adresseToUpdate.Nom;
-            adresseToUpdate.AdresseId = input.AdresseFK ?? adresseToUpdate.AdresseId;
+            fournisseurToUpdate.Nom = input.Nom ?? fournisseurToUpdate.Nom;
+
+            var findFournisseurAdresseToUpdate = await _dbContext.Adresse.FirstOrDefaultAsync(a => a.Id == input.AdresseFK);
+
+            if (findFournisseurAdresseToUpdate == null)
+            {
+                throw new KeyNotFoundException($"Fournisseur avec l'ID {input.AdresseFK} n'a pas été trouvée.");
+            }
+
+            findFournisseurAdresseToUpdate.Pays = input.Pays ?? findFournisseurAdresseToUpdate.Pays;
+            findFournisseurAdresseToUpdate.Rue = input.Rue ?? findFournisseurAdresseToUpdate.Rue;
+            findFournisseurAdresseToUpdate.Ville = input.Ville ?? findFournisseurAdresseToUpdate.Ville;
+            findFournisseurAdresseToUpdate.CodePostal = input.CodePostal ?? findFournisseurAdresseToUpdate.CodePostal;
 
             // Sauvegarde les changements
-            _dbContext.Fournisseur.Update(adresseToUpdate);
+            _dbContext.Fournisseur.Update(fournisseurToUpdate);
             await _dbContext.SaveChangesAsync();
 
             // Retourne la réponse
             return new FournisseurResponse
             {
-                Id = adresseToUpdate.Id,
-                Nom = adresseToUpdate.Nom,
-                AdresseId = adresseToUpdate.AdresseId,
+                Id = fournisseurToUpdate.Id,
+                Nom = fournisseurToUpdate.Nom,
+                Adresse = findFournisseurAdresseToUpdate,
+
             };
         }
     }
