@@ -1,5 +1,5 @@
 ﻿
-using Core.DTO.Utilisateur;
+using Core.DTO.UtilisateurDTO;
 using Core.DTO.Adresse;
 using Core.UseCase;
 using Core.UseCase.Utilisateur;

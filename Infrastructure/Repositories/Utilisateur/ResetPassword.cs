@@ -1,4 +1,4 @@
-﻿using Core.DTO.Utilisateur;
+﻿using Core.DTO.UtilisateurDTO;
 using Core.UseCase;
 using Core.UseCase.Utilisateur;
 using STIVE.Infrastructure;
