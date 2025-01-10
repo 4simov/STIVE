@@ -14,7 +14,7 @@ using STIVE.Core.UseCase.Article;
 using Infrastructure.Repositories.Article;
 using Core.UseCase.ArticleDTO;
 
-namespace Infrastructure.Services
+namespace STIVE.Extensions
 {
     public static class ServiceCollectionExtensions
     {
