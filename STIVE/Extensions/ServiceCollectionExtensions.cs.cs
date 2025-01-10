@@ -7,14 +7,14 @@ using Core.UseCase.Utilisateur;
 using Infrastructure.Repositories.AdresseNS;
 using Infrastructure.Repositories.FamilleNS;
 using Infrastructure.Repositories.UtilisateurNS;
+using Infrastructure.Repositories.Article;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
 using STIVE.Infrastructure;
 using STIVE.Infrastructure.Repositories;
-using Core.UseCase.Article;
 using STIVE.Core.UseCase.Article;
-using Infrastructure.Repositories.Article;
 using Core.UseCase.ArticleDTO;
+using Core.UseCase.Article;
 
 namespace STIVE.Extensions
 {
