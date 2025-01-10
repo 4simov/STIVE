@@ -23,9 +23,8 @@ namespace STIVE.Infrastructure
                 .WithMany()                     // Une Famille peut avoir plusieurs Articles (si la relation est 1 à N)
                 .HasForeignKey(a => a.FamilleId);  // La clé étrangère dans Article qui pointe vers Famille
         }
-
-
+        
         public DbSet<Adresse> Adresse { get; set; }
-        public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<Utilisateur> Utilisateur { get; set;
     }
 }

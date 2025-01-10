@@ -1,4 +1,3 @@
-﻿
 using Core.DTO.ArticleDTO;
 using Core.UseCase.Article;
 using Core.UseCase.ArticleDTO;
@@ -24,8 +23,7 @@ namespace STIVE.WebAPI.Controllers
         }
         [HttpGet]
         public async Task<IActionResult> GetArticle([FromServices] IGetArticle _getArticle)
-        {
-            
+        { 
             var articles = await _getArticle.ExecuteAsync();
 
             return Ok(articles);

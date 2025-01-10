@@ -31,6 +31,7 @@ namespace STIVE.Core.UseCase.Article
             {
                 articleResponse.Add(new ArticleResponse().GetResponse(article));
             }
+            
             return Task.FromResult(articleResponse);
         }
     }

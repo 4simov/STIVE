@@ -3,9 +3,8 @@ using Core.UseCase;
 using Core.UseCase.Article;
 using STIVE.Domain.Entities;
 
-
-
 namespace STIVE.Infrastructure.Repositories;
+
 public class AddArticle : BaseUseCase<NegosudContext>, IAddArticle
 {
     // Stocke le contexte de connexion à la base de données

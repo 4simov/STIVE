@@ -19,6 +19,5 @@ namespace Core.DTO.ArticleDTO
         // A ajouter quand la table prix_article sera prise en charge
         public float PrixUnitaire { get; set; }
         public float? PrixCarton { get; set; }
-
     }
 }
