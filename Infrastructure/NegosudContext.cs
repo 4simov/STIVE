@@ -25,6 +25,6 @@ namespace STIVE.Infrastructure
         }
         
         public DbSet<Adresse> Adresse { get; set; }
-        public DbSet<Utilisateur> Utilisateur { get; set;
+        public DbSet<Utilisateur> Utilisateur { get; set; }
     }
 }
