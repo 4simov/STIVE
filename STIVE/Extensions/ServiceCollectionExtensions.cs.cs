@@ -8,8 +8,13 @@ using Infrastructure.Repositories.UtilisateurNS;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
 using STIVE.Infrastructure;
+using Core.UseCase.Article;
+using STIVE.Infrastructure.Repositories;
+using STIVE.Core.UseCase.Article;
+using Infrastructure.Repositories.Article;
+using Core.UseCase.ArticleDTO;
 
-namespace Infrastructure.Services.Token
+namespace Infrastructure.Services
 {
     public static class ServiceCollectionExtensions
     {
@@ -29,6 +34,11 @@ namespace Infrastructure.Services.Token
             services.AddScoped<IAddUtilisateur, AddUtilisateur>();
             services.AddScoped<ILogin, Login>();
             services.AddScoped<IResetPassword, ResetPassword>();
+
+            services.AddScoped<IAddArticle, AddArticle>();
+            services.AddScoped<IGetArticle, GetArticle>();
+            services.AddScoped<IUpdateArticle, UpdateArticle>();
+            services.AddScoped<IDeleteArticle, DeleteArticle>();
 
             return services;
         }
