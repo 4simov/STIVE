@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Infrastructure.Services;
+using STIVE.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
