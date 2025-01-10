@@ -1,4 +1,4 @@
-﻿using Core.DTO.Article;
+﻿using Core.DTO.ArticleDTO;
 using Core.DTO.Famille;
 using STIVE.Core.UseCase;
 using System;

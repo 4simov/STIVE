@@ -1,4 +1,4 @@
-﻿using Core.DTO.Article;
+﻿using Core.DTO.ArticleDTO;
 using STIVE.Core.UseCase;
 using System;
 using System.Collections.Generic;
