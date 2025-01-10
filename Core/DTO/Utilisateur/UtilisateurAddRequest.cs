@@ -1,5 +1,5 @@
 ﻿
-namespace Core.DTO.Utilisateur
+namespace Core.DTO.UtilisateurDTO
 {
     public class UtilisateurAddRequest
     {

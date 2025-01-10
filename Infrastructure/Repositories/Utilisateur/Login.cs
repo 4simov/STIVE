@@ -1,22 +1,10 @@
-﻿using Core.DTO.Famille;
-using Core.DTO.Utilisateur;
+﻿using Core.DTO.UtilisateurDTO;
 using Core.Services.Token;
 using Core.UseCase;
 using Core.UseCase.Utilisateur;
 using Infrastructure.Services.NewFolder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using STIVE.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.UtilisateurNS
 {

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.PortableExecutable;
-
+﻿
 namespace Core.DTO.Famille
 {
     public class FamilleAddRequest

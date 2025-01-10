@@ -1,12 +1,8 @@
 using Core.DTO.ArticleDTO;
 using Core.UseCase.Article;
 using Core.UseCase.ArticleDTO;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using STIVE.Domain.Entities;
 using STIVE.Infrastructure;
-using STIVE.Infrastructure.Repositories;
 
 namespace STIVE.WebAPI.Controllers
 {

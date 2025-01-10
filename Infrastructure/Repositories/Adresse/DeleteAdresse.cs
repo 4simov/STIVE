@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Core.DTO.Adresse;
+﻿using Core.DTO.Adresse;
 using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
 using Microsoft.EntityFrameworkCore;
