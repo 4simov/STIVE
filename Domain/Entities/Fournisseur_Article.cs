@@ -12,6 +12,6 @@ namespace Domain.Entities
         public int IdFournisseur {  get; set; }
         public int IdArticle { get; set; }
         public int NomFournisseur { get; set; }
-        public int NomArticle { get; set;
+        public int NomArticle { get; set; }
     }
 }
