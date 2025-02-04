@@ -2,7 +2,6 @@
 using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
 
 
 namespace Infrastructure.Repositories.FamilleNS
@@ -19,7 +18,7 @@ namespace Infrastructure.Repositories.FamilleNS
             var add = _dbContext.Famille.Add(familleToAdd);
             await _dbContext.SaveChangesAsync();
 
-            var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin, Photo = add.Entity.Photo};
+            var resp = new FamilleResponse { Id = add.Entity.Id, Nom = add.Entity.Nom, TypeVin = add.Entity.TypeVin, Photo = add.Entity.Photo };
 
             return await Task.FromResult(resp);
         }

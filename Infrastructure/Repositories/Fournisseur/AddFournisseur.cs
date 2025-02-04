@@ -2,7 +2,6 @@
 using Core.UseCase.Fournisseur;
 using Core.UseCase;
 using Domain.Entities;
-using STIVE.Infrastructure;
 using Core.DTO.AdresseDTO;
 using Core.UseCase.Adresse.Abstraction;
 

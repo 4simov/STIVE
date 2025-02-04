@@ -1,10 +1,10 @@
 ﻿using Core.DTO.Fournisseur;
 using Core.UseCase.Fournisseur;
 using Domain.Entities;
+using Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
 
 namespace STIVE.WebAPI.Controllers
 {
@@ -13,7 +13,6 @@ namespace STIVE.WebAPI.Controllers
     public class FournisseurController : ControllerBase
     {
         private readonly NegosudContext _context;
-        private readonly IGetFournisseur _getFournisseur;
 
         public FournisseurController(NegosudContext context)
         {

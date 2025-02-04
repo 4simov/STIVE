@@ -1,7 +1,6 @@
 ﻿using Core.DTO.AdresseDTO;
 using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.AdresseNS
 {

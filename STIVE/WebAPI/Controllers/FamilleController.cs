@@ -1,12 +1,11 @@
 ﻿using Core.DTO.Famille;
 using Core.UseCase.Famille.Abstraction;
+using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
-
 
 
 namespace STIVE.WebAPI.Controllers
@@ -16,7 +15,6 @@ namespace STIVE.WebAPI.Controllers
     public class FamilleController : ControllerBase
     {
         private readonly NegosudContext _context;
-        private readonly IGetFamille _getFamille;
 
         public FamilleController(NegosudContext context)
         {

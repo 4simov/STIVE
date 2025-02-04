@@ -1,6 +1,5 @@
 ﻿using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
-using STIVE.Infrastructure;
 using STIVE.Domain.Entities;
 using Core.DTO.AdresseDTO;
 

@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using Core.DTO.Utilisateur;
+﻿using Core.DTO.UtilisateurDTO;
 using Core.Services.Token;
 using Core.UseCase.Utilisateur;
-using Domain.Entities;
+using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
 
 
 

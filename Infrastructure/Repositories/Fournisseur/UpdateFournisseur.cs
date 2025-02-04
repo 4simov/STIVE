@@ -2,13 +2,11 @@
 using Core.UseCase.Fournisseur;
 using Core.UseCase;
 using Microsoft.EntityFrameworkCore;
-using STIVE.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.UseCase.Fournisseur;
 
 namespace Infrastructure.Repositories.FournisseurNS
 {

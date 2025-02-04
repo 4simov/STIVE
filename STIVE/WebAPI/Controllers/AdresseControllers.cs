@@ -1,9 +1,9 @@
 ﻿using Core.DTO.AdresseDTO;
 using Core.UseCase.Adresse.Abstraction;
+using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
 
 namespace STIVE.WebAPI.Controllers
 {
@@ -12,7 +12,6 @@ namespace STIVE.WebAPI.Controllers
     public class AdresseController : ControllerBase
     {
         private readonly NegosudContext _context;
-        private readonly IGetAdresse _getAdresse;
 
         public AdresseController(NegosudContext context)
         {

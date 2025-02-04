@@ -2,7 +2,6 @@
 using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
 using Microsoft.EntityFrameworkCore;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.AdresseNS
 {

@@ -1,3 +1,5 @@
+
+
 ﻿using STIVE.Core.UseCase.Famille.Abstraction;
 using Core.UseCase.Famille.Abstraction;
 using Core.UseCase.Adresse.Abstraction;
@@ -7,11 +9,13 @@ using Infrastructure.Repositories.FamilleNS;
 using Infrastructure.Repositories.UtilisateurNS;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
-using STIVE.Infrastructure;
 using Infrastructure.Repositories.FournisseurNS;
 using Core.UseCase.Fournisseur;
+using Core.UseCase.Article;
+using Infrastructure.Repositories;
+using Infrastructure;
 
-namespace Infrastructure.Services.Token
+namespace STIVE.Extensions
 {
     public static class ServiceCollectionExtensions
     {
@@ -36,6 +40,11 @@ namespace Infrastructure.Services.Token
             services.AddScoped<IAddUtilisateur, AddUtilisateur>();
             services.AddScoped<ILogin, Login>();
             services.AddScoped<IResetPassword, ResetPassword>();
+
+            services.AddScoped<IAddArticle, AddArticle>();
+            services.AddScoped<IGetArticle, GetArticle>();
+            services.AddScoped<IUpdateArticle, UpdateArticle>();
+            services.AddScoped<IDeleteArticle, DeleteArticle>();
 
             return services;
         }
