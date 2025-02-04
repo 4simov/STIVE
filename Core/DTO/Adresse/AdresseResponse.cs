@@ -1,4 +1,10 @@
-﻿namespace Core.DTO.Adresse
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.DTO.AdresseDTO
 {
     public class AdresseResponse
     {

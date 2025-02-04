@@ -1,9 +1,8 @@
 ﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
-using Core.UseCase.ArticleDTO;
-using STIVE.Infrastructure;
+using Core.UseCase.Article;
 
-namespace Infrastructure.Repositories.Article
+namespace Infrastructure.Repositories
 {
     public class DeleteArticle : BaseUseCase<NegosudContext>, IDeleteArticle
     {

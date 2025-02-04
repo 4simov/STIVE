@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using STIVE.Domain.Entities;
 
-namespace STIVE.Infrastructure
+namespace Infrastructure
 {
     public class NegosudContext : DbContext
     {
@@ -26,5 +26,6 @@ namespace STIVE.Infrastructure
         
         public DbSet<Adresse> Adresse { get; set; }
         public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<Fournisseur> Fournisseur { get; set; }
     }
 }

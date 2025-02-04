@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using STIVE.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using STIVE.Extensions;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

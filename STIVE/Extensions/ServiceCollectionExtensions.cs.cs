@@ -7,14 +7,13 @@ using Core.UseCase.Utilisateur;
 using Infrastructure.Repositories.AdresseNS;
 using Infrastructure.Repositories.FamilleNS;
 using Infrastructure.Repositories.UtilisateurNS;
-using Infrastructure.Repositories.Article;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
-using STIVE.Infrastructure;
-using STIVE.Infrastructure.Repositories;
-using STIVE.Core.UseCase.Article;
-using Core.UseCase.ArticleDTO;
+using Infrastructure.Repositories.FournisseurNS;
+using Core.UseCase.Fournisseur;
 using Core.UseCase.Article;
+using Infrastructure.Repositories;
+using Infrastructure;
 
 namespace STIVE.Extensions
 {
@@ -30,6 +29,11 @@ namespace STIVE.Extensions
             services.AddScoped<IGetAdresse, GetAdresse>();
             services.AddScoped<IDeleteAdresse, DeleteAdresse>();
             services.AddScoped<IUpdateAdresse, UpdateAdresse>();
+
+            services.AddScoped<IAddFournisseur, AddFournisseur>();
+            services.AddScoped<IGetFournisseur, GetFournisseur>();
+            services.AddScoped<IDeleteFournisseur, DeleteFournisseur>();
+            services.AddScoped<IUpdateFournisseur, UpdateFournisseur>();
 
             services.AddScoped<ITokenGenerator, MyJwt>();
 

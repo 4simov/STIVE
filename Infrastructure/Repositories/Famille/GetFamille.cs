@@ -1,7 +1,6 @@
 ﻿using Core.DTO.Famille;
 using Core.UseCase;
 using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.FamilleNS
 {

@@ -1,13 +1,12 @@
 ﻿
 using Core.DTO.UtilisateurDTO;
-using Core.DTO.Adresse;
 using Core.UseCase;
 using Core.UseCase.Utilisateur;
 using Domain.Entities;
-using STIVE.Infrastructure;
 using Domain.Enums;
 using Infrastructure.Services.NewFolder;
 using Core.UseCase.Adresse.Abstraction;
+using Core.DTO.AdresseDTO;
 
 namespace Infrastructure.Repositories.UtilisateurNS
 {

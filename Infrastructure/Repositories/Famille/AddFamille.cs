@@ -2,7 +2,6 @@
 using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
 using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
 
 
 namespace Infrastructure.Repositories.FamilleNS
@@ -15,7 +14,7 @@ namespace Infrastructure.Repositories.FamilleNS
 
         public async Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
         {
-            var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin, Photo= input.Photo };
+            var familleToAdd = new Famille { Nom = input.Nom, TypeVin = input.TypeVin, Photo = input.Photo };
             var add = _dbContext.Famille.Add(familleToAdd);
             await _dbContext.SaveChangesAsync();
 

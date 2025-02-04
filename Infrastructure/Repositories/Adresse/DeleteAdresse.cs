@@ -1,9 +1,10 @@
-﻿using Core.DTO.Adresse;
+﻿using System;
+using System.Threading.Tasks;
+using Core.DTO.AdresseDTO;
 using Core.UseCase;
 using Core.UseCase.Adresse.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.AdresseNS
 {

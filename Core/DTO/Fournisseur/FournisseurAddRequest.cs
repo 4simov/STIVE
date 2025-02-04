@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.AdresseDTO
+namespace Core.DTO.Fournisseur
 {
-    public class AdresseAddRequest
+    public class FournisseurAddRequest
     {
+        public string Nom { get; set; }
         public string Pays { get; set; }
         public string Rue { get; set; }
         public string Ville { get; set; }
