@@ -3,7 +3,6 @@ using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
 using Domain.Entities;
 
-
 namespace Infrastructure.Repositories.FamilleNS
 {
     public class AddFamille : BaseUseCase<NegosudContext>, IAddFamille

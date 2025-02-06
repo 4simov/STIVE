@@ -8,3 +8,9 @@ MODIFY COLUMN reaprovisionnement_auto BOOLEAN DEFAULT false;
 
 ALTER TABLE Article
 ADD COLUMN is_delete BOOLEAN DEFAULT false;
+
+# Modification table Famille
+
+ALTER TABLE famille
+DROP COLUMN type_vin,
+ADD COLUMN photo VARCHAR(200);

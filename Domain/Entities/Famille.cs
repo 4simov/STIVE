@@ -6,7 +6,6 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public string Nom { get; set; }
-        [Column("Photo")]
-        public byte[] Photo { get; set; }
+        public string? Photo { get; set; }
     }
 }
