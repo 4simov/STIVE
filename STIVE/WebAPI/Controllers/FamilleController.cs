@@ -31,64 +31,35 @@ namespace STIVE.WebAPI.Controllers
         }
 
 
-
-
-
         // GET: api/Famille/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Famille>> GetFamille([FromServices] IGetFamille _getFamille, int id)
+        public async Task<ActionResult<Famille>> GetFamille([FromServices] IGetFamilleById _getFamilleById, int id)
         {
-            var famille = await _context.Famille.FindAsync(id);
-
-            if (famille == null || famille.Photo == null)
-            {
-                return NotFound();
-            }
-            return File(famille.Photo, "image/jpeg");
+            var get = await _getFamilleById.ExecuteAsync(id);
+            return Ok(get);
             //return famille;
         }
 
-        [Authorize(Policy = "Admin")]
+        //[Authorize(Policy = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFamille(int id, Famille famille)
+        public async Task<IActionResult> PutFamille([FromServices] IUpdateFamille _updateFamille, FamilleUpdateRequest input, int id)
         {
-            if (id != famille.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(famille).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!FamilleExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            input.Id = id;
+            var update = await _updateFamille.ExecuteAsync(input);
+            return CreatedAtAction("PutFamille", update);
         }
 
         // POST: api/Famille
         [HttpPost]
-        [Authorize(Policy ="Admin")]
-        public async Task<ActionResult<Famille>> PostFamille( [FromServices] IAddFamille _addFamille, FamilleAddRequest famille)
+        //[Authorize(Policy ="Admin")]
+        public async Task<ActionResult<Famille>> PostFamille( [FromServices] IAddFamille _addFamille, FamilleAddRequest input)
         {
-            var r = await _addFamille.ExecuteAsync(famille);
+            var post = await _addFamille.ExecuteAsync(input);
 
-            return CreatedAtAction("GetFamille", r);
+            return CreatedAtAction("PostFamille", post);
         }
 
-        // DELETE: api/Famille/5
+        /*// DELETE: api/Famille/5
         [HttpDelete("{id}")]
         [Authorize(Policy = "Admin")]
         public async Task<IActionResult> DeleteFamille(int id)
@@ -103,7 +74,7 @@ namespace STIVE.WebAPI.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
+        }*/
 
         private bool FamilleExists(int id)
         {

@@ -22,8 +22,10 @@ namespace STIVE.Extensions
         // Enregistrement des UseCases
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
-            services.AddScoped<IGetFamille, UpdateFamille>();
             services.AddScoped<IAddFamille, AddFamille>();
+            services.AddScoped<IGetFamille, GetFamille>();
+            services.AddScoped<IUpdateFamille, UpdateFamille>();
+            services.AddScoped<IGetFamilleById, GetFamilleById>();
 
             services.AddScoped<IAddAdresse, AddAdresse>();
             services.AddScoped<IGetAdresse, GetAdresse>();
