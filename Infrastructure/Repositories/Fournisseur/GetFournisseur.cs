@@ -14,6 +14,7 @@ namespace Infrastructure.Repositories.FournisseurNS
     {
         public GetFournisseur(NegosudContext context) : base(context)
         {
+
         }
 
         public Task<List<FournisseurResponse>> ExecuteAsync()

@@ -28,22 +28,22 @@ namespace STIVE.WebAPI.Controllers
 
         // GET: api/Fournisseur/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Fournisseur>> GetFournisseur([FromServices] IGetFournisseur _getFournisseur, int id)
+        public async Task<ActionResult<Fournisseur>> GetFournisseur([FromServices] IGetFournisseurById _getFournisseur, int id)
         {
-            var Fournisseur = await _context.Fournisseur.FindAsync(id);
+            var Fournisseur = await _getFournisseur.ExecuteAsync(id);
 
             if (Fournisseur == null)
             {
                 return NotFound();
             }
 
-            return Fournisseur;
+            return Ok(Fournisseur);
         }
 
         // PUT: api/Fournisseur/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFournisseur([FromServices] IUpdateFournisseur _updateFournisseur, FournisseurUpdateRequest input, int id)
+        public async Task<IActionResult> UpdateFournisseur([FromServices] IUpdateFournisseur _updateFournisseur, FournisseurUpdateRequest input, int id)
         {
             input.Id = id;
             var r = await _updateFournisseur.ExecuteAsync(input);

@@ -37,6 +37,7 @@ namespace STIVE.Extensions
             services.AddScoped<IGetFournisseur, GetFournisseur>();
             services.AddScoped<IDeleteFournisseur, DeleteFournisseur>();
             services.AddScoped<IUpdateFournisseur, UpdateFournisseur>();
+            services.AddScoped<IGetFournisseurById, GetFournisseurById>();
 
             services.AddScoped<ITokenGenerator, MyJwt>();
 
