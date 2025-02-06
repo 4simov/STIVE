@@ -12,7 +12,8 @@ namespace Domain.Entities
         public string Mdp { get; set; }
         public int Role { get; set; }
         [Column("adresse_fk")]
-        public int AdresseFk { get; set; }
+        public int? AdresseFk { get; set; }
+        public Adresse? Adresse { get; set; }
         //public string Salt { get; set; }
     }
 }

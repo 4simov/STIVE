@@ -14,3 +14,5 @@ ADD COLUMN is_delete BOOLEAN DEFAULT false;
 ALTER TABLE famille
 DROP COLUMN type_vin,
 ADD COLUMN photo VARCHAR(200);
+
+ALTER TABLE `utilisateur` CHANGE `adresse_fk` `adresse_fk` INT NULL; 

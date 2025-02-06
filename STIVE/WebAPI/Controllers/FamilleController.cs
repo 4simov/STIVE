@@ -35,6 +35,7 @@ namespace STIVE.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Famille>> GetFamille([FromServices] IGetFamilleById _getFamilleById, int id)
         {
+
             var get = await _getFamilleById.ExecuteAsync(id);
             return Ok(get);
             //return famille;
@@ -44,7 +45,6 @@ namespace STIVE.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFamille([FromServices] IUpdateFamille _updateFamille, FamilleUpdateRequest input, int id)
         {
-            input.Id = id;
             var update = await _updateFamille.ExecuteAsync(input);
             return CreatedAtAction("PutFamille", update);
         }
