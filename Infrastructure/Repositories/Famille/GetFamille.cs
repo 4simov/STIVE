@@ -21,7 +21,6 @@ namespace Infrastructure.Repositories.FamilleNS
                 {
                     Id = famille.Id,
                     Nom = famille.Nom,
-                    TypeVin = famille.TypeVin,
                     Photo = famille.Photo,
                 });
             }
