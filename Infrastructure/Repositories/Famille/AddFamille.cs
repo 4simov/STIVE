@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories.FamilleNS
 
         public async Task<FamilleResponse> ExecuteAsync(FamilleAddRequest input)
         {
-            var familleToAdd = new Famille { Nom = input.Nom, Photo = input.Photo };
+            var familleToAdd = new Famille { Nom = input.Nom, Photo = input.Photo ?? null };
             var add = _dbContext.Famille.Add(familleToAdd);
             await _dbContext.SaveChangesAsync();
 

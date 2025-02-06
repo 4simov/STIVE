@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Repositories.Famille
+namespace Infrastructure.Repositories.FamilleNS
 {
     public class UpdateFamille : BaseUseCase<NegosudContext>, IUpdateFamille
     {

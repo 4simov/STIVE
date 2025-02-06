@@ -4,9 +4,9 @@ using STIVE.Core.UseCase.Famille.Abstraction;
 
 namespace Infrastructure.Repositories.FamilleNS
 {
-    public class UpdateFamille : BaseUseCase<NegosudContext>, IGetFamille
+    public class GetFamille : BaseUseCase<NegosudContext>, IGetFamille
     {
-        public UpdateFamille(NegosudContext context) : base(context)
+        public GetFamille(NegosudContext context) : base(context)
         {
         }
 
