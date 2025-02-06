@@ -1,4 +1,4 @@
-﻿using Core.DTO.Famille;
+﻿using Core.DTO.FamilleDTO;
 using Core.UseCase;
 using STIVE.Core.UseCase.Famille.Abstraction;
 

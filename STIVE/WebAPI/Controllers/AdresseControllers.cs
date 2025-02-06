@@ -1,9 +1,8 @@
 ﻿using Core.DTO.AdresseDTO;
 using Core.UseCase.Adresse.Abstraction;
 using Infrastructure;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.Domain.Entities;
+using Domain.Entities;
 
 namespace STIVE.WebAPI.Controllers
 {

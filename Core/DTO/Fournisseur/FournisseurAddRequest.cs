@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.Fournisseur
+namespace Core.DTO.FournisseurDTO
 {
     public class FournisseurAddRequest
     {

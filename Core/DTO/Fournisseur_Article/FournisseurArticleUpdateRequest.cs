@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.Fournisseur_Article
+namespace Core.DTO.Fournisseur_ArticleDTO
 {
     public class FournisseurArticleUpdateRequest
     {

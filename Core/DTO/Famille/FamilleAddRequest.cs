@@ -1,5 +1,5 @@
 ﻿
-namespace Core.DTO.Famille
+namespace Core.DTO.FamilleDTO
 {
     public class FamilleAddRequest
     {

@@ -1,4 +1,4 @@
-﻿using Core.DTO.Fournisseur;
+﻿using Core.DTO.FournisseurDTO;
 using Core.UseCase.Fournisseur;
 using Core.UseCase;
 using Microsoft.EntityFrameworkCore;

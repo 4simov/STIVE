@@ -1,11 +1,11 @@
-﻿using STIVE.Domain.Entities;
+﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DTO.Fournisseur_Article
+namespace Core.DTO.Fournisseur_ArticleDTO
 {
     public class FournisseurArticleResponse
     {

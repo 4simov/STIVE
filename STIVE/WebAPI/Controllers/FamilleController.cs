@@ -1,11 +1,11 @@
-﻿using Core.DTO.Famille;
+﻿using Core.DTO.FamilleDTO;
 using Core.UseCase.Famille.Abstraction;
 using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Domain.Entities;
+using Domain.Entities;
 
 
 namespace STIVE.WebAPI.Controllers

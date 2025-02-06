@@ -1,4 +1,4 @@
-﻿using Core.DTO.Fournisseur_Article;
+﻿using Core.DTO.Fournisseur_ArticleDTO;
 using STIVE.Core.UseCase;
 
 

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace STIVE.Domain.Entities
+namespace Domain.Entities
 {
     public class Adresse
     {

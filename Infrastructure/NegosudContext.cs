@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using STIVE.Domain.Entities;
 
 namespace Infrastructure
 {

@@ -1,10 +1,8 @@
-﻿using Core.DTO.Fournisseur;
+﻿using Core.DTO.FournisseurDTO;
 using Core.UseCase.Fournisseur;
 using Domain.Entities;
 using Infrastructure;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.Domain.Entities;
 
 namespace STIVE.WebAPI.Controllers
 {

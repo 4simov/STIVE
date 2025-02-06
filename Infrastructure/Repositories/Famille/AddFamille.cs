@@ -1,7 +1,7 @@
-﻿using Core.DTO.Famille;
+﻿using Core.DTO.FamilleDTO;
 using Core.UseCase;
 using Core.UseCase.Famille.Abstraction;
-using STIVE.Domain.Entities;
+using Domain.Entities;
 
 
 namespace Infrastructure.Repositories.FamilleNS
