@@ -14,6 +14,7 @@ using Core.UseCase.Fournisseur;
 using Core.UseCase.Article;
 using Infrastructure.Repositories;
 using Infrastructure;
+using Infrastructure.Services;
 
 namespace STIVE.Extensions
 {
@@ -42,6 +43,7 @@ namespace STIVE.Extensions
             services.AddScoped<IAddUtilisateur, AddUtilisateur>();
             services.AddScoped<ILogin, Login>();
             services.AddScoped<IResetPassword, ResetPassword>();
+            services.AddScoped<IUpdateUtilisateur, UpdateUtilisateur>();
 
             services.AddScoped<IAddArticle, AddArticle>();
             services.AddScoped<IGetArticle, GetArticle>();
