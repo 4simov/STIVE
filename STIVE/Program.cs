@@ -25,7 +25,7 @@ builder.Services.AddDbContext<NegosudContext>(options => {
 
     options.UseMySql(connectionString, serverVersion);
 });
-//Rajouté pour les droits 
+//RajoutÃ© pour les droits 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -73,7 +73,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
