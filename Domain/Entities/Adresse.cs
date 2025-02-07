@@ -3,6 +3,7 @@
 
 namespace Domain.Entities
 {
+    [Table("adresse")]
     public class Adresse
     {
         public int Id { get; set; }
