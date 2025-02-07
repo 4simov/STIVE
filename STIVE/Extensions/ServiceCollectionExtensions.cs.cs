@@ -7,14 +7,16 @@ using Core.UseCase.Utilisateur;
 using Infrastructure.Repositories.AdresseNS;
 using Infrastructure.Repositories.FamilleNS;
 using Infrastructure.Repositories.UtilisateurNS;
-using Infrastructure.Repositories.Article;
 using Infrastructure.Services.Jwt;
 using Core.Services.Token;
-using STIVE.Infrastructure;
-using STIVE.Infrastructure.Repositories;
-using STIVE.Core.UseCase.Article;
-using Core.UseCase.ArticleDTO;
+using Infrastructure.Repositories.FournisseurNS;
+using Core.UseCase.Fournisseur;
 using Core.UseCase.Article;
+using Infrastructure.Repositories;
+using Infrastructure;
+using Infrastructure.Services;
+using Core.UseCase.PrixArticle;
+using Infrastructure.Repositories.PrixArticleNS;
 
 namespace STIVE.Extensions
 {
@@ -23,24 +25,36 @@ namespace STIVE.Extensions
         // Enregistrement des UseCases
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
-            services.AddScoped<IGetFamille, UpdateFamille>();
             services.AddScoped<IAddFamille, AddFamille>();
+            services.AddScoped<IGetFamille, GetFamille>();
+            services.AddScoped<IUpdateFamille, UpdateFamille>();
+            services.AddScoped<IGetFamilleById, GetFamilleById>();
 
             services.AddScoped<IAddAdresse, AddAdresse>();
             services.AddScoped<IGetAdresse, GetAdresse>();
             services.AddScoped<IDeleteAdresse, DeleteAdresse>();
             services.AddScoped<IUpdateAdresse, UpdateAdresse>();
 
+            services.AddScoped<IAddFournisseur, AddFournisseur>();
+            services.AddScoped<IGetFournisseur, GetFournisseur>();
+            services.AddScoped<IDeleteFournisseur, DeleteFournisseur>();
+            services.AddScoped<IUpdateFournisseur, UpdateFournisseur>();
+            services.AddScoped<IGetFournisseurById, GetFournisseurById>();
+
             services.AddScoped<ITokenGenerator, MyJwt>();
 
             services.AddScoped<IAddUtilisateur, AddUtilisateur>();
             services.AddScoped<ILogin, Login>();
             services.AddScoped<IResetPassword, ResetPassword>();
+            services.AddScoped<IUpdateUtilisateur, UpdateUtilisateur>();
 
             services.AddScoped<IAddArticle, AddArticle>();
             services.AddScoped<IGetArticle, GetArticle>();
             services.AddScoped<IUpdateArticle, UpdateArticle>();
             services.AddScoped<IDeleteArticle, DeleteArticle>();
+
+            services.AddScoped<IAddPrixArticle, AddPrixArticle>();
+            services.AddScoped<IGetPrixArticle, GetPrixArticleById>();
 
             return services;
         }

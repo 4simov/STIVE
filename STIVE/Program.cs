@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using STIVE.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using STIVE.Extensions;
+using Infrastructure;
+using Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,12 +17,18 @@ builder.Services.AddSwaggerGen();
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<NegosudContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("LocalConnection");
+    var connectionString = builder.Configuration.GetConnectionString("RemoteConnection");
     var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
     //var connectionString = builder.Configuration.GetConnectionString("LocalMariaDbConnection");
     //var serverVersion = new MariaDbServerVersion(new Version(10, 10, 2));
 
-    options.UseMySql(connectionString, serverVersion);
+    options.UseMySql(connectionString, serverVersion, mysqlOptions =>
+    mysqlOptions.EnableRetryOnFailure(
+        maxRetryCount: 5,
+        maxRetryDelay: TimeSpan.FromSeconds(10),
+        errorNumbersToAdd: null
+    ));
+
 });
 //Rajouté pour les droits 
 builder.Services.AddCors(options =>
@@ -53,6 +60,8 @@ builder.Services.AddAuthentication( options =>
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
+//Service pour stocker les données du token le temps du traitement de la requête
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthorization(options =>
 {
@@ -75,6 +84,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 

@@ -1,9 +1,8 @@
 ﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
 using Core.UseCase.Article;
-using STIVE.Infrastructure;
 
-namespace STIVE.Core.UseCase.Article
+namespace Infrastructure.Repositories
 {
     public class GetArticle : BaseUseCase<NegosudContext>, IGetArticle
     {

@@ -2,9 +2,8 @@
 using Core.UseCase;
 using Core.UseCase.Article;
 using Microsoft.EntityFrameworkCore;
-using STIVE.Infrastructure;
 
-namespace Infrastructure.Repositories.Article
+namespace Infrastructure.Repositories
 {
     public class UpdateArticle : BaseUseCase<NegosudContext>, IUpdateArticle
     {

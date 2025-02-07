@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace STIVE.Domain.Entities
+namespace Domain.Entities
 {
+    [Table("adresse")]
     public class Adresse
     {
         public int Id { get; set; }

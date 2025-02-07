@@ -1,4 +1,4 @@
-using STIVE.Domain.Entities;
+using Domain.Entities;
 
 namespace Core.DTO.ArticleDTO
 {

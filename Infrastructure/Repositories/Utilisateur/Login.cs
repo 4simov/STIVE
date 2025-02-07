@@ -4,7 +4,6 @@ using Core.UseCase;
 using Core.UseCase.Utilisateur;
 using Infrastructure.Services.NewFolder;
 using Microsoft.Extensions.Configuration;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.UtilisateurNS
 {

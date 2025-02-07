@@ -1,10 +1,11 @@
 ﻿using Core.DTO.UtilisateurDTO;
 using Core.Services.Token;
 using Core.UseCase.Utilisateur;
+using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.Domain.Entities;
-using STIVE.Infrastructure;
+using Domain.Entities;
+using Infrastructure.Services;
 
 
 
@@ -50,6 +51,12 @@ namespace STIVE.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUtilisateur([FromServices] IUpdateUtilisateur _updateUtilisateur, int id, UtilisateurUpdateRequest request)
         {
+            //Récupération de l'id de l'utilisateur à partir de son token
+            request.Id = HttpContext.Items["UserId"]?.ToString();
+            if(request.Id == null)
+            {
+                return Unauthorized();
+            }
             var resp = _updateUtilisateur.ExecuteAsync(request);
             return NoContent();
         }

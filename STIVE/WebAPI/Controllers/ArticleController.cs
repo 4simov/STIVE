@@ -1,8 +1,7 @@
 using Core.DTO.ArticleDTO;
 using Core.UseCase.Article;
-using Core.UseCase.ArticleDTO;
+using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.Infrastructure;
 
 namespace STIVE.WebAPI.Controllers
 {

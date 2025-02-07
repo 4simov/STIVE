@@ -1,13 +1,12 @@
-﻿using Core.DTO.Famille;
+﻿using Core.DTO.FamilleDTO;
 using Core.UseCase;
 using STIVE.Core.UseCase.Famille.Abstraction;
-using STIVE.Infrastructure;
 
 namespace Infrastructure.Repositories.FamilleNS
 {
-    public class UpdateFamille : BaseUseCase<NegosudContext>, IGetFamille
+    public class GetFamille : BaseUseCase<NegosudContext>, IGetFamille
     {
-        public UpdateFamille(NegosudContext context) : base(context)
+        public GetFamille(NegosudContext context) : base(context)
         {
         }
 
@@ -22,7 +21,6 @@ namespace Infrastructure.Repositories.FamilleNS
                 {
                     Id = famille.Id,
                     Nom = famille.Nom,
-                    TypeVin = famille.TypeVin,
                     Photo = famille.Photo,
                 });
             }

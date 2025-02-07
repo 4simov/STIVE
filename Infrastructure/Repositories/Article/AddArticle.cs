@@ -1,9 +1,9 @@
 ﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
 using Core.UseCase.Article;
-using STIVE.Domain.Entities;
+using Domain.Entities;
 
-namespace STIVE.Infrastructure.Repositories;
+namespace Infrastructure.Repositories;
 
 public class AddArticle : BaseUseCase<NegosudContext>, IAddArticle
 {

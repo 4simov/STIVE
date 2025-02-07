@@ -1,4 +1,4 @@
-﻿using Core.DTO.Famille;
+﻿using Core.DTO.FamilleDTO;
 
 namespace STIVE.Core.UseCase.Famille.Abstraction
 {
