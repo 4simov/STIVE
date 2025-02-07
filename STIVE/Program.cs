@@ -17,12 +17,18 @@ builder.Services.AddSwaggerGen();
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<NegosudContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("LocalConnection");
+    var connectionString = builder.Configuration.GetConnectionString("RemoteConnection");
     var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
     //var connectionString = builder.Configuration.GetConnectionString("LocalMariaDbConnection");
     //var serverVersion = new MariaDbServerVersion(new Version(10, 10, 2));
 
-    options.UseMySql(connectionString, serverVersion);
+    options.UseMySql(connectionString, serverVersion, mysqlOptions =>
+    mysqlOptions.EnableRetryOnFailure(
+        maxRetryCount: 5,
+        maxRetryDelay: TimeSpan.FromSeconds(10),
+        errorNumbersToAdd: null
+    ));
+
 });
 //Rajouté pour les droits 
 builder.Services.AddCors(options =>
