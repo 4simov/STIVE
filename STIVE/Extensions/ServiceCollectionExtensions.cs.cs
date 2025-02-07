@@ -15,6 +15,8 @@ using Core.UseCase.Article;
 using Infrastructure.Repositories;
 using Infrastructure;
 using Infrastructure.Services;
+using Core.UseCase.PrixArticle;
+using Infrastructure.Repositories.PrixArticleNS;
 
 namespace STIVE.Extensions
 {
@@ -50,6 +52,9 @@ namespace STIVE.Extensions
             services.AddScoped<IGetArticle, GetArticle>();
             services.AddScoped<IUpdateArticle, UpdateArticle>();
             services.AddScoped<IDeleteArticle, DeleteArticle>();
+
+            services.AddScoped<IAddPrixArticle, AddPrixArticle>();
+            services.AddScoped<IGetPrixArticle, GetPrixArticleById>();
 
             return services;
         }

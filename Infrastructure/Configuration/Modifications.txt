@@ -16,3 +16,11 @@ DROP COLUMN type_vin,
 ADD COLUMN photo VARCHAR(200);
 
 ALTER TABLE `utilisateur` CHANGE `adresse_fk` `adresse_fk` INT NULL; 
+
+CREATE TABLE prix_article (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    article_fk INT NOT NULL,
+    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    prix FLOAT NOT NULL,
+    is_carton TINYINT(1) NOT NULL DEFAULT 0
+);

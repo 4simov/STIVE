@@ -89,3 +89,11 @@ CREATE TABLE image_article (
     CONSTRAINT fk_article FOREIGN KEY (article_fk) REFERENCES article(id) 
     ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE TABLE prix_article (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    article_fk INT NOT NULL,
+    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    prix FLOAT NOT NULL,
+    is_carton TINYINT(1) NOT NULL DEFAULT 0
+);
