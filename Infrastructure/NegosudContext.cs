@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure
 {
@@ -26,5 +27,6 @@ namespace Infrastructure
         public DbSet<Adresse> Adresse { get; set; }
         public DbSet<Utilisateur> Utilisateur { get; set; }
         public DbSet<Fournisseur> Fournisseur { get; set; }
+        public DbSet<PrixArticle> PrixArticle { get; set; }
     }
 }

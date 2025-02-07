@@ -16,3 +16,4 @@ DROP COLUMN type_vin,
 ADD COLUMN photo VARCHAR(200);
 
 ALTER TABLE `utilisateur` CHANGE `adresse_fk` `adresse_fk` INT NULL; 
+
