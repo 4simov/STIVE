@@ -53,6 +53,7 @@ namespace STIVE.Extensions
             services.AddScoped<IDeleteArticle, DeleteArticle>();
 
             services.AddScoped<IAddPrixArticle, AddPrixArticle>();
+            services.AddScoped<IGetPrixArticle, GetPrixArticleById>();
 
             return services;
         }
