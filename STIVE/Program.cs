@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<NegosudContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("LocalConnection");
+    var connectionString = builder.Configuration.GetConnectionString("RemoteConnection");
     var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
     //var connectionString = builder.Configuration.GetConnectionString("LocalMariaDbConnection");
     //var serverVersion = new MariaDbServerVersion(new Version(10, 10, 2));
