@@ -1,6 +1,7 @@
 ﻿using Core.DTO.ArticleDTO;
 using Core.UseCase;
 using Core.UseCase.Article;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -23,12 +24,32 @@ namespace Infrastructure.Repositories
 
         public Task<List<ArticleResponse>> ExecuteAsync()
         {
-            var articles = _context.Article.ToList();
+            var articles = _context.Article
+                .Include(a => a.Stocks)
+                .Include( a => a.Famille)
+                .ToList();
 
             List<ArticleResponse> articleResponse = new List<ArticleResponse>();
             foreach (var article in articles)
             {
-                articleResponse.Add(new ArticleResponse().GetResponse(article));
+                int quantity = 0;
+                foreach (var s in article.Stocks) 
+                {
+                    quantity += s.QuantiteRestante;
+                }
+                articleResponse.Add(new ArticleResponse
+                {
+                    Id = article.Id,
+                    Nom = article.Nom,
+                    Description = article.Description,
+                    FamilleId = article.FamilleId,
+                    FamilleNom = article.Famille.Nom,
+                    PrixCarton = 0,
+                    PrixUnitaire = 0,
+                    Quantite = quantity,
+                    FournisseurId = article.FournisseurId,
+
+                });
             }
             
             return Task.FromResult(articleResponse);

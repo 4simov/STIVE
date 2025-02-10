@@ -24,6 +24,8 @@ namespace Domain.Entities
         public byte IsDelete { get; set; }
         //public float PrixUnitaire { get; set; }
         //public float? PrixCarton { get; set; }
+
+        public ICollection<Stock> Stocks { get; set; }
     }
 }
 

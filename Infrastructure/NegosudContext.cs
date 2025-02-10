@@ -22,6 +22,11 @@ namespace Infrastructure
                 .HasOne(a => a.Famille)         // Un Article a une Famille
                 .WithMany()                     // Une Famille peut avoir plusieurs Articles (si la relation est 1 à N)
                 .HasForeignKey(a => a.FamilleId);  // La clé étrangère dans Article qui pointe vers Famille
+
+            modelBuilder.Entity<Article>()
+                .HasMany(x => x.Stocks)
+                .WithOne()
+                .HasForeignKey(x => x.ArticleId);
         }
         
         public DbSet<Adresse> Adresse { get; set; }
