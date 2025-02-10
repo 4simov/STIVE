@@ -11,7 +11,7 @@ using Infrastructure.Services;
 
 namespace STIVE.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
