@@ -28,5 +28,6 @@ namespace Infrastructure
         public DbSet<Utilisateur> Utilisateur { get; set; }
         public DbSet<Fournisseur> Fournisseur { get; set; }
         public DbSet<PrixArticle> PrixArticle { get; set; }
+        public DbSet<Stock> Stock { get; set; }
     }
 }

@@ -17,6 +17,8 @@ using Infrastructure;
 using Infrastructure.Services;
 using Core.UseCase.PrixArticle;
 using Infrastructure.Repositories.PrixArticleNS;
+using Core.UseCase.StockUS;
+using Infrastructure.Repositories.StockUS;
 
 namespace STIVE.Extensions
 {
@@ -56,6 +58,9 @@ namespace STIVE.Extensions
             services.AddScoped<IAddPrixArticle, AddPrixArticle>();
             services.AddScoped<IGetPrixArticle, GetPrixArticleById>();
 
+            services.AddScoped<IAddStock, AddStock>();
+            services.AddScoped<IUpdateStock, UpdateStock>();
+            services.AddScoped<IGetStock, GetStock>();
             return services;
         }
 
