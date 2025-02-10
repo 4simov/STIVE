@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace STIVE.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class PrixArticleController : ControllerBase
     {
         [HttpPost]
