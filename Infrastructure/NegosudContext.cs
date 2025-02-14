@@ -27,6 +27,11 @@ namespace Infrastructure
                 .HasMany(x => x.Stocks)
                 .WithOne()
                 .HasForeignKey(x => x.ArticleId);
+
+            modelBuilder.Entity<Commande>()
+                .HasMany(x => x.Articles)
+                .WithOne()
+                .HasForeignKey(x => x.CommandeId);
         }
         
         public DbSet<Adresse> Adresse { get; set; }
@@ -34,5 +39,7 @@ namespace Infrastructure
         public DbSet<Fournisseur> Fournisseur { get; set; }
         public DbSet<PrixArticle> PrixArticle { get; set; }
         public DbSet<Stock> Stock { get; set; }
+        public DbSet<Commande> Commande { get; set; }
+        public DbSet<ArticleCommande> ArticleCommande { get; set; }
     }
 }

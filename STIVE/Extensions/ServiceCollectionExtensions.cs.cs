@@ -19,6 +19,8 @@ using Core.UseCase.PrixArticle;
 using Infrastructure.Repositories.PrixArticleNS;
 using Core.UseCase.StockUS;
 using Infrastructure.Repositories.StockUS;
+using Core.UseCase.CommandeUS;
+using Infrastructure.Repositories.CommandeUS;
 
 namespace STIVE.Extensions
 {
@@ -61,6 +63,11 @@ namespace STIVE.Extensions
             services.AddScoped<IAddStock, AddStock>();
             services.AddScoped<IUpdateStock, UpdateStock>();
             services.AddScoped<IGetStock, GetStock>();
+
+            services.AddScoped<IAddCommande, AddCommande>();
+            services.AddScoped<IGetCommande, GetCommande>();
+            services.AddScoped<IUpdateCommande, UpdateCommande>();
+
             return services;
         }
 
