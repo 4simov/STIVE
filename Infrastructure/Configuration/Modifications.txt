@@ -24,3 +24,25 @@ CREATE TABLE prix_article (
     prix FLOAT NOT NULL,
     is_carton TINYINT(1) NOT NULL DEFAULT 0
 );
+
+# Confusion dans la logique du stockage du statut d'une commande
+
+ALTER TABLE commande ADD COLUMN statut INT NOT NULL DEFAULT 1;
+
+# Création depuis zéro de la table article_commande
+
+CREATE TABLE article_commande (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    commande_fk INT NOT NULL,
+    article_fk INT NOT NULL,
+    prix_fk INT NOT NULL,
+    quantite INT NOT NULL,
+    FOREIGN KEY (commande_fk) REFERENCES commande(id) ON DELETE CASCADE,
+    FOREIGN KEY (article_fk) REFERENCES article(id) ON DELETE CASCADE,
+    FOREIGN KEY (prix_fk) REFERENCES prix_article(id) ON DELETE CASCADE
+);
+
+# Effacement de l'ancienne table item_commande
+
+DROP TABLE IF EXISTS item_commande;
+

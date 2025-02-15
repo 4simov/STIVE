@@ -9,10 +9,10 @@ namespace Domain.Entities
         public string Nom { get; set; }
         [Column("famille_fk")]
         public int FamilleId { get; set; }
-        public Famille Famille { get; set; }
+        public Famille? Famille { get; set; }
         [Column("fournisseur_fk")]
         public int FournisseurId { get; set; }
-        //public Fournisseur Fournisseur { get; set; }
+        public Fournisseur? Fournisseur { get; set; }
         [Column("seuil_minimum")]
         public int SeuilMinimum { get; set; }
         [Column("reapprovisionnement_auto")]
