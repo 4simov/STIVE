@@ -1,6 +1,8 @@
 ﻿using Core.DTO.CommandeDTO;
+using Core.QueryHelpers;
 using Core.UseCase;
 using Core.UseCase.CommandeUS;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,17 @@ namespace Infrastructure.Repositories.CommandeUS
 
         public Task<List<CommandeResponse>> ExecuteAsync()
         {
-            throw new NotImplementedException();
+            var listCommande = _dbContext.Commande
+                .Include(c => c.Articles)
+                .ThenInclude(a => a.Prix);
+
+            List<CommandeResponse> commandeResponses = new List<CommandeResponse>();
+            foreach (var item in listCommande) 
+            { 
+                commandeResponses.Add(CommandeQueryHelper.CommandeQuery(item));
+            }
+
+            return Task.FromResult(commandeResponses);
         }
     }
 }

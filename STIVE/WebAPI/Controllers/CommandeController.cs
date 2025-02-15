@@ -17,6 +17,13 @@ namespace STIVE.WebAPI.Controllers
             return Ok(resp);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCommande([FromServices] IGetByIdCommande _getByIdCommande, int id)
+        {
+            var resp = await _getByIdCommande.ExecuteAsync(id);
+            return Ok(resp);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddCommande([FromServices] IAddCommande _addCommande, CommandeAddRequest input)
         {
@@ -24,7 +31,7 @@ namespace STIVE.WebAPI.Controllers
             return Ok(resp);
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCommande([FromServices] IUpdateCommande _updateCommande, CommandeUpdateRequest input, int id)
         {
             input.Id = id;

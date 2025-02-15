@@ -67,6 +67,7 @@ namespace STIVE.Extensions
             services.AddScoped<IAddCommande, AddCommande>();
             services.AddScoped<IGetCommande, GetCommande>();
             services.AddScoped<IUpdateCommande, UpdateCommande>();
+            services.AddScoped<IGetByIdCommande, GetByIdCommande>();
 
             return services;
         }

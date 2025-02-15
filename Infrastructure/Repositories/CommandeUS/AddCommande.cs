@@ -23,7 +23,7 @@ namespace Infrastructure.Repositories.CommandeUS
             var commande = new Commande
             {
                 UtilisateurId = input.UtilisateurId,
-                Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                Date = DateTime.Now,
                 Statut = (int)StatutCommandeEnum.Commande,
             };
 

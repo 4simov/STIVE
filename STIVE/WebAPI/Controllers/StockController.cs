@@ -22,7 +22,7 @@ namespace STIVE.WebAPI.Controllers
             return Ok(resp);
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> AddStock([FromServices] IUpdateStock updateStock, StockUpdateRequest input, int id)
         {
             input.Id = id;

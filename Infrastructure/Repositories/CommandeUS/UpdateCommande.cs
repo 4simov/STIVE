@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.CommandeUS
 {
@@ -18,7 +19,9 @@ namespace Infrastructure.Repositories.CommandeUS
 
         public Task<CommandeResponse> ExecuteAsync(CommandeUpdateRequest input)
         {
-            var commande = _dbContext.Commande.FirstOrDefault( c => c.Id == input.Id);
+            var commande = _dbContext.Commande
+                .Include( c => c.Articles).ThenInclude(a => a.Prix)
+                .FirstOrDefault( c => c.Id == input.Id);
             
             if (commande == null)
             {

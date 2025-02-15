@@ -16,7 +16,7 @@ namespace Domain.Entities
         [Column("client_fk")]
         public int UtilisateurId { get; set; }
         public Utilisateur? Utilisateur { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public int Statut { get; set; }
 
         public ICollection<ArticleCommande> Articles { get; set; }
