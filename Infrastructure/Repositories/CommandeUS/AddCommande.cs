@@ -37,6 +37,7 @@ namespace Infrastructure.Repositories.CommandeUS
                     ArticleId = article.ArticleId,
                     CommandeId = commandeAdd.Entity.Id,
                     PrixId = article.PrixId,
+                    Prix = _dbContext.PrixArticle.FirstOrDefault(p => p.Id == article.PrixId),
                     Quantite = article.Quantity,
                 };
 

@@ -22,7 +22,8 @@ namespace Core.QueryHelpers
             {
                 Id = articleCommande.Id,
                 CommandeId = articleCommande.CommandeId,
-                Article = articleCommande.Article,
+                ArticleId = articleCommande.ArticleId,
+                //Article = articleCommande.Article,
                 PrixId = articleCommande.PrixId,
                 Prix = articleCommande.Prix.Prix,
                 Quantity = articleCommande.Quantite,

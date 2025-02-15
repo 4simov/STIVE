@@ -28,10 +28,10 @@ namespace Infrastructure
                 .WithOne()
                 .HasForeignKey(x => x.ArticleId);
 
-            modelBuilder.Entity<Commande>()
+            /*modelBuilder.Entity<Commande>()
                 .HasMany(x => x.Articles)
                 .WithOne()
-                .HasForeignKey(x => x.CommandeId);
+                .HasForeignKey(x => x.CommandeId);*/
         }
         
         public DbSet<Adresse> Adresse { get; set; }
